@@ -205,28 +205,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="sidebar-section" style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '10px' }}>
-          <div className="section-label"><Info size={14} /><span>เอกสารโครงการ &amp; โค้ดวิจัย</span></div>
-          <a href="/slides.html" target="_blank" rel="noopener noreferrer" style={{
-            display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px',
-            background: 'rgba(90, 86, 214, 0.08)', border: '1px solid rgba(90, 86, 214, 0.2)',
-            borderRadius: '12px', color: '#5856d6', textDecoration: 'none',
-            fontSize: '12.5px', fontWeight: '700', transition: 'all 0.2s',
-          }} onMouseOver={e => e.currentTarget.style.background = 'rgba(90, 86, 214, 0.15)'}
-             onMouseOut={e => e.currentTarget.style.background = 'rgba(90, 86, 214, 0.08)'}>
-            🖥️ <span>สไลด์นำเสนอระบบ (Slides)</span>
-          </a>
-          <a href="/notebook.html" target="_blank" rel="noopener noreferrer" style={{
-            display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px',
-            background: 'rgba(52, 199, 89, 0.08)', border: '1px solid rgba(52, 199, 89, 0.2)',
-            borderRadius: '12px', color: '#34c759', textDecoration: 'none',
-            fontSize: '12.5px', fontWeight: '700', transition: 'all 0.2s',
-          }} onMouseOver={e => e.currentTarget.style.background = 'rgba(52, 199, 89, 0.15)'}
-             onMouseOut={e => e.currentTarget.style.background = 'rgba(52, 199, 89, 0.08)'}>
-            📓 <span>ดูสมุดบันทึก Jupyter (Python)</span>
-          </a>
-        </div>
-
         <div className="sidebar-footer"><span>Mini Project Y4/T2 — 2026</span></div>
       </aside>
 
@@ -274,9 +252,11 @@ export default function Dashboard() {
               {/* Chart Tab Switcher */}
               <div className="chart-tabs">
                 {[
-                  { id: 'lst',     label: 'LST Trend',    icon: <Thermometer size={13}/> },
-                  { id: 'gas',     label: 'Gas Trends',   icon: <Cloud size={13}/> },
-                  { id: 'predict', label: 'Predict 2027', icon: <Layers size={13}/> },
+                  { id: 'lst',      label: 'LST Trend',     icon: <Thermometer size={13}/> },
+                  { id: 'gas',      label: 'Gas Trends',    icon: <Cloud size={13}/> },
+                  { id: 'predict',  label: 'Predict 2027',  icon: <Layers size={13}/> },
+                  { id: 'notebook', label: 'Jupyter Code',   icon: <Info size={13}/> },
+                  { id: 'slides',   label: 'Presentation',  icon: <Flame size={13}/> },
                 ].map(tab => (
                   <button
                     key={tab.id}
@@ -327,6 +307,38 @@ export default function Dashboard() {
                   <div className="chart-card wide">
                     <h3><Layers size={14} /> LST Actual 2026 vs Predicted 2027 (ค่าเฉลี่ยทั้งจังหวัด)</h3>
                     <PredictCompareChart />
+                  </div>
+                )}
+
+                {activeChart === 'notebook' && (
+                  <div className="chart-card wide" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ margin: 0, paddingBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}><Info size={14} /> Jupyter Notebook — โค้ดวิจัยและการพยากรณ์ Random Forest (Python)</h3>
+                    <iframe 
+                      src="/notebook.html" 
+                      style={{ 
+                        width: '100%', 
+                        flex: 1, 
+                        border: '1px solid var(--border-color)', 
+                        borderRadius: '8px',
+                        background: '#0f172a'
+                      }} 
+                    />
+                  </div>
+                )}
+
+                {activeChart === 'slides' && (
+                  <div className="chart-card wide" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ margin: 0, paddingBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}><Flame size={14} /> สไลด์นำเสนอระบบ — CitySweat Web Architecture &amp; Code Showcase</h3>
+                    <iframe 
+                      src="/slides.html" 
+                      style={{ 
+                        width: '100%', 
+                        flex: 1, 
+                        border: '1px solid var(--border-color)', 
+                        borderRadius: '8px',
+                        background: '#08090e'
+                      }} 
+                    />
                   </div>
                 )}
 
