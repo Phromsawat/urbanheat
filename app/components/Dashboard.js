@@ -118,12 +118,12 @@ export default function Dashboard() {
           <div className="section-label"><Info size={14} /><span>ข้อมูลโปรเจค</span></div>
           <div className="info-card">
             <div className="info-row"><span className="info-label">พื้นที่ศึกษา</span><span className="info-value">ชลบุรี</span></div>
-            <div className="info-row"><span className="info-label">ดาวเทียม LST</span><span className="info-value">Landsat 8/9</span></div>
+            <div className="info-row"><span className="info-label">ดาวเทียม LST</span><span className="info-value">MODIS</span></div>
             <div className="info-row"><span className="info-label">ดาวเทียม GHG</span><span className="info-value">Sentinel-5P</span></div>
             <div className="info-row"><span className="info-label">รูปแบบข้อมูล</span><span className="info-value">11 อำเภอ (รายเขต)</span></div>
             <div className="info-row"><span className="info-label">จุดข้อมูลเดิม</span><span className="info-value">4,800 grid pts</span></div>
             <div className="info-row"><span className="info-label">ช่วงปี</span><span className="info-value">2018–2026 + 2027</span></div>
-            <div className="info-row"><span className="info-label">Model</span><span className="info-value">Linear Regression</span></div>
+            <div className="info-row"><span className="info-label">Model</span><span className="info-value">Random Forest Regression</span></div>
           </div>
         </div>
 

@@ -92,7 +92,7 @@ export function TimeSeriesChart() {
             title: items => `ปี ${items[0].label}`,
             afterBody: items => {
               const idx = items[0]?.dataIndex;
-              if (idx === 9) return 'ค่าพยากรณ์ (Linear Regression)';
+              if (idx === 9) return 'ค่าพยากรณ์ (Random Forest Regression)';
               return '';
             }
           }
@@ -317,7 +317,7 @@ export function PredictCompareChart() {
         </div>
       </div>
       <p style={{ textAlign: 'center', color: '#64748b', fontSize: 12, margin: 0 }}>
-        ค่าพยากรณ์จาก Linear Regression Model | ข้อมูล 4,800 grid points ทั่วจังหวัดชลบุรี
+        ค่าพยากรณ์จาก Random Forest Regression Model | ข้อมูล 4,800 grid points ทั่วจังหวัดชลบุรี
       </p>
     </div>
   );
