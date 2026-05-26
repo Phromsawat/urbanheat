@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CitySweat — Presentation Slides</title>
+  <title>CitySweat — Web GIS & Code Architecture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -33,7 +33,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 60px 80px;
+      padding: 50px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -51,7 +51,7 @@
 
     /* ── Slide Content ───────────────────── */
     .slide-content {
-      max-width: 1100px;
+      max-width: 1200px;
       width: 100%;
     }
 
@@ -63,9 +63,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(244,109,67,0.12);
-      border: 1px solid rgba(244,109,67,0.25);
-      color: #f46d43;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.25);
+      color: #a78bfa;
       padding: 8px 20px;
       border-radius: 50px;
       font-size: 13px;
@@ -74,26 +74,26 @@
       margin-bottom: 28px;
     }
     .slide-title h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
       font-weight: 900;
-      line-height: 1.15;
-      background: linear-gradient(135deg, #f46d43, #fee08b, #f59e0b);
+      line-height: 1.2;
+      background: linear-gradient(135deg, #a78bfa, #818cf8, #38bdf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 20px;
     }
     .slide-title h2 {
-      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-size: clamp(0.95rem, 1.8vw, 1.3rem);
       font-weight: 400;
       color: #94a3b8;
       line-height: 1.7;
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 32px;
     }
     .slide-title .meta {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -101,13 +101,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
       padding: 8px 16px;
       border-radius: 10px;
       font-size: 13px;
       color: #94a3b8;
-      font-weight: 500;
     }
     .meta .dot {
       width: 8px; height: 8px;
@@ -117,62 +116,59 @@
 
     /* ── Section Heading ─────────────────── */
     .section-num {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: #f46d43;
+      color: #7c3aed;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .slide h2.heading {
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
       font-weight: 800;
       line-height: 1.25;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: #f1f5f9;
     }
     .slide .subtitle {
-      font-size: 15px;
+      font-size: 14px;
       color: #64748b;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
       line-height: 1.6;
-      max-width: 750px;
     }
 
     /* ── Cards Grid ───────────────────────── */
     .cards {
       display: grid;
-      gap: 18px;
+      gap: 16px;
     }
-    .cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .cards.cols-4 { grid-template-columns: repeat(4, 1fr); }
     .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 20px;
       transition: all 0.3s ease;
     }
     .card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(244,109,67,0.2);
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(124,58,237,0.2);
       transform: translateY(-2px);
     }
     .card .card-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
     .card h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: #f1f5f9;
     }
     .card p {
-      font-size: 13px;
+      font-size: 12.5px;
       color: #94a3b8;
-      line-height: 1.65;
+      line-height: 1.6;
     }
     .card .tag {
       display: inline-block;
@@ -185,25 +181,26 @@
 
     /* ── Code Block ──────────────────────── */
     .code-block {
-      background: rgba(15,17,28,0.85);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,11,18,0.92);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: 14px;
-      padding: 20px 24px;
+      padding: 18px 22px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      line-height: 1.7;
+      font-size: 11.5px;
+      line-height: 1.65;
       color: #cbd5e1;
       overflow-x: auto;
       white-space: pre;
-      max-height: 340px;
+      max-height: 380px;
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: rgba(255,255,255,0.12) transparent;
+      text-align: left;
     }
-    .code-block .kw { color: #c084fc; }
+    .code-block .kw { color: #c084fc; font-weight: 600; }
     .code-block .fn { color: #67e8f9; }
     .code-block .str { color: #86efac; }
-    .code-block .cm { color: #475569; }
+    .code-block .cm { color: #57657d; font-style: italic; }
     .code-block .num { color: #fbbf24; }
     .code-label {
       font-size: 11px;
@@ -215,88 +212,24 @@
       gap: 6px;
     }
     .code-label .dot-lang {
-      width: 10px; height: 10px; border-radius: 50%;
-    }
-
-    /* ── Flow Diagram ────────────────────── */
-    .flow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 24px 0;
-    }
-    .flow-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 14px 20px;
-      font-size: 13px;
-      font-weight: 600;
-      text-align: center;
-      color: #e2e8f0;
-      min-width: 120px;
-      transition: all 0.3s;
-    }
-    .flow-box:hover { border-color: rgba(244,109,67,0.4); }
-    .flow-box small { display: block; font-size: 10px; color: #64748b; font-weight: 400; margin-top: 4px; }
-    .flow-arrow {
-      color: #f46d43;
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    /* ── Table ────────────────────────────── */
-    .data-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      font-size: 13px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .data-table th {
-      background: rgba(244,109,67,0.1);
-      color: #f46d43;
-      padding: 12px 16px;
-      text-align: left;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.3px;
-    }
-    .data-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      color: #cbd5e1;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-    }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
-    .data-table .highlight-row td {
-      background: rgba(244,109,67,0.06);
-      color: #f59e0b;
-      font-weight: 600;
+      width: 8px; height: 8px; border-radius: 50%;
     }
 
     /* ── Split Layout ────────────────────── */
     .split {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
       align-items: start;
     }
-    .split.wide-left { grid-template-columns: 1.3fr 1fr; }
-    .split.wide-right { grid-template-columns: 1fr 1.3fr; }
 
     /* ── Pill Badges ─────────────────────── */
     .pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 4px 12px;
-      border-radius: 8px;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 6px;
       font-size: 11px;
       font-weight: 600;
     }
@@ -304,31 +237,7 @@
     .pill.green  { background: rgba(52,199,89,0.12); color: #34c759; }
     .pill.purple { background: rgba(168,85,247,0.12); color: #a855f7; }
     .pill.blue   { background: rgba(14,165,233,0.12); color: #0ea5e9; }
-    .pill.red    { background: rgba(225,29,72,0.12); color: #e11d48; }
     .pill.yellow { background: rgba(245,158,11,0.12); color: #f59e0b; }
-
-    /* ── List ─────────────────────────────── */
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
-    .feature-list li::before {
-      content: '▸';
-      color: #f46d43;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
 
     /* ── Progress Bar ────────────────────── */
     .progress-bar {
@@ -336,7 +245,7 @@
       top: 0;
       left: 0;
       height: 3px;
-      background: linear-gradient(90deg, #f46d43, #f59e0b, #fee08b);
+      background: linear-gradient(90deg, #7c3aed, #0ea5e9, #38bdf8);
       transition: width 0.5s cubic-bezier(0.4, 0, 0.15, 1);
       z-index: 100;
       border-radius: 0 2px 2px 0;
@@ -356,8 +265,8 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(15,17,28,0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,11,18,0.85);
       backdrop-filter: blur(12px);
       color: #94a3b8;
       cursor: pointer;
@@ -367,19 +276,19 @@
       font-size: 18px;
       transition: all 0.2s;
     }
-    .nav-btn:hover { background: rgba(244,109,67,0.15); color: #f46d43; border-color: rgba(244,109,67,0.3); }
+    .nav-btn:hover { background: rgba(124,58,237,0.15); color: #c084fc; border-color: rgba(124,58,237,0.3); }
     .nav-btn:active { transform: scale(0.95); }
     .slide-counter {
       font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
       color: #64748b;
-      background: rgba(15,17,28,0.8);
+      background: rgba(10,11,18,0.85);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.06);
       padding: 8px 16px;
       border-radius: 10px;
     }
-    .slide-counter .current { color: #f46d43; font-weight: 700; }
+    .slide-counter .current { color: #a78bfa; font-weight: 700; }
 
     /* ── Dot Nav ──────────────────────────── */
     .dot-nav {
@@ -402,33 +311,13 @@
       transition: all 0.25s;
       padding: 0;
     }
-    .dot-nav button:hover { border-color: #f46d43; }
+    .dot-nav button:hover { border-color: #a78bfa; }
     .dot-nav button.active {
-      background: #f46d43;
-      border-color: #f46d43;
+      background: #a78bfa;
+      border-color: #a78bfa;
       width: 10px;
       height: 22px;
       border-radius: 5px;
-    }
-
-    /* ── Highlight Box ───────────────────── */
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(244,109,67,0.08), rgba(245,158,11,0.05));
-      border: 1px solid rgba(244,109,67,0.2);
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin: 20px 0;
-    }
-    .highlight-box h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: #f59e0b;
-      margin-bottom: 8px;
-    }
-    .highlight-box p {
-      font-size: 13px;
-      color: #94a3b8;
-      line-height: 1.65;
     }
 
     /* ── Animations ──────────────────────── */
@@ -444,14 +333,12 @@
     .slide.active .slide-content > *:nth-child(3) { animation-delay: 0.20s; }
     .slide.active .slide-content > *:nth-child(4) { animation-delay: 0.28s; }
     .slide.active .slide-content > *:nth-child(5) { animation-delay: 0.35s; }
-    .slide.active .slide-content > *:nth-child(6) { animation-delay: 0.42s; }
 
     /* ── Responsive ──────────────────────── */
     @media (max-width: 900px) {
       .slide { padding: 40px 28px; }
-      .cards.cols-2, .cards.cols-3, .cards.cols-4 { grid-template-columns: 1fr; }
-      .split, .split.wide-left, .split.wide-right { grid-template-columns: 1fr; }
-      .flow { justify-content: center; }
+      .cards.cols-3 { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -476,77 +363,29 @@
 <!-- ═══════════════════════════════════════════════ -->
 <div class="slide active">
   <div class="slide-content slide-title">
-    <div class="badge">🔥 Mini Project Y4/T2 — 2026</div>
-    <h1>CitySweat</h1>
-    <h2>ระบบวิเคราะห์ความสัมพันธ์ระหว่างก๊าซเรือนกระจก (GHG)<br>กับอุณหภูมิผิวพื้น (LST) ในจังหวัดชลบุรี ด้วย Random Forest Regression</h2>
-    <div class="meta">
-      <span><span class="dot" style="background:#f46d43"></span> ดาวเทียม MODIS (LST)</span>
-      <span><span class="dot" style="background:#a855f7"></span> Sentinel-5P (GHG)</span>
-      <span><span class="dot" style="background:#34c759"></span> Random Forest Regression</span>
-      <span><span class="dot" style="background:#0ea5e9"></span> 11 อำเภอ, 4,800 Grid Points</span>
+    <div class="badge">💻 Mini Project Y4/T2 — Web Technical Presentation</div>
+    <h1>CitySweat Web GIS Architecture</h1>
+    <h2>การวิจัยโครงสร้างหน้าบ้าน (Next.js/React/Leaflet) และหลังบ้าน (Python Preprocessing)<br>ของการแสดงผลแผนที่ความร้อนและการจำลองสภาพแวดล้อมชลบุรี</h2>
+    <div class="meta" style="margin-top:24px">
+      <span><span class="dot" style="background:#7c3aed"></span> Next.js 16 Client-side SPA</span>
+      <span><span class="dot" style="background:#0ea5e9"></span> Leaflet Vector Rendering</span>
+      <span><span class="dot" style="background:#34c759"></span> Python Spatial Join Pipeline</span>
+      <span><span class="dot" style="background:#fbbf24"></span> Serverless Flat-file Database</span>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 2: Overview & Data Sources -->
-<!-- ═══════════════════════════════════════════════ -->
-<div class="slide">
-  <div class="slide-content">
-    <div class="section-num">01 — ภาพรวมและข้อมูลดาวเทียม</div>
-    <h2 class="heading">ภาพรวมโครงการ & แหล่งข้อมูลที่ใช้</h2>
-    <p class="subtitle">วิเคราะห์ปรากฏการณ์เกาะความร้อนเมือง (UHI) และปริมาณก๊าซเรือนกระจก (GHG) ในจังหวัดชลบุรีด้วยระบบข้อมูลเชิงพื้นที่ (GIS) และการทำนายอนาคต</p>
-    <div class="split wide-left">
-      <div class="cards" style="grid-template-columns: 1fr; gap: 14px;">
-        <div class="card" style="border-left: 4px solid #f46d43; padding: 18px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-            <span style="font-size:24px">🛰️</span>
-            <h3 style="margin:0;font-size:15px">MODIS — อุณหภูมิผิวพื้น (LST)</h3>
-          </div>
-          <p style="font-size:12.5px;line-height:1.5">ตรวจวัดรังสีอินฟราเรดความร้อนจากพื้นผิวโลกเพื่อคำนวณอุณหภูมิเฉลี่ยรายปี ย้อนหลัง 9 ปี (2018–2026) ครอบคลุมจุดตรวจวัดความละเอียดสูงทั่วทั้งจังหวัดชลบุรี</p>
-          <div style="margin-top:10px;display:flex;gap:8px">
-            <span class="pill orange">LST (°C)</span>
-            <span class="pill yellow">ปี 2018–2026</span>
-          </div>
-        </div>
-        <div class="card" style="border-left: 4px solid #a855f7; padding: 18px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-            <span style="font-size:24px">🌍</span>
-            <h3 style="margin:0;font-size:15px">Sentinel-5P — ก๊าซเรือนกระจก (GHG)</h3>
-          </div>
-          <p style="font-size:12.5px;line-height:1.5">ตรวจวัดปริมาณสะสมก๊าซเรือนกระจกและสารมลพิษทางอากาศจากองค์การอวกาศยุโรป (ESA) ครอบคลุม 4 ชนิดแก๊สหลักที่มีผลต่อการดักจับรังสีความร้อนในชั้นบรรยากาศ</p>
-          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-            <span class="pill purple">มีเทน (CH₄)</span>
-            <span class="pill orange">คาร์บอนมอนอกไซด์ (CO)</span>
-            <span class="pill red">ไนโตรเจนไดออกไซด์ (NO₂)</span>
-            <span class="pill blue">โอโซน (O₃)</span>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="height: 100%; border-color: rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); display: flex; flex-direction: column; justify-content: center; padding: 24px;">
-        <div class="card-icon" style="font-size:36px;margin-bottom:12px;color:#34c759">🎯</div>
-        <h3 style="font-size:16px;margin-bottom:10px;color:#f1f5f9">เป้าหมายหลักของโปรเจกต์</h3>
-        <p style="font-size:13px;color:#cbd5e1;line-height:1.65;margin-bottom:0">
-          1. <strong>วิเคราะห์ทางสถิติ:</strong> ศึกษาการสะสมของก๊าซเรือนกระจกรายปีและการเพิ่มขึ้นของความร้อนในเขตเมืองชลบุรี<br><br>
-          2. <strong>ทำนายอนาคต (2027):</strong> ใช้ Machine Learning พยากรณ์อุณหภูมิ LST ล่วงหน้า 1 ปีเพื่อการวางนโยบายเชิงรุก<br><br>
-          3. <strong>เครื่องมือจำลอง (Simulator):</strong> ให้ผู้บริหารผังเมืองทดลองลดก๊าซคาร์บอนและปลูกป่าในเมืองเพื่อประเมินระดับอุณหภูมิที่ลดลงจริงแบบ Real-time
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 3: Architecture (Diagram Style) -->
+<!-- SLIDE 2: System Architecture (Diagram) -->
 <!-- ═══════════════════════════════════════════════ -->
 <div class="slide" style="background:#ffffff;padding:50px 70px">
   <div class="slide-content" style="max-width:1200px">
     <!-- Title -->
     <div style="margin-bottom:8px">
-      <span style="display:inline-block;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#1a1a2e;border:3.5px solid #7c3aed;padding:4px 24px;line-height:1.2;font-family:'Inter',sans-serif">WEB GIS</span>
+      <span style="display:inline-block;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;color:#1a1a2e;border:3.5px solid #7c3aed;padding:4px 24px;line-height:1.2;font-family:'Inter',sans-serif">WEB GIS</span>
     </div>
-    <div style="font-size:clamp(1rem,2vw,1.4rem);font-weight:700;color:#333;margin-bottom:36px;font-family:'Inter','Noto Sans Thai',sans-serif;letter-spacing:1px">
-      ขั้นตอนที่ 2 : SYSTEM ARCHITECTURE
+    <div style="font-size:clamp(0.9rem,1.8vw,1.2rem);font-weight:700;color:#333;margin-bottom:32px;font-family:'Inter','Noto Sans Thai',sans-serif;letter-spacing:1px">
+      ขั้นตอนที่ 1 : SYSTEM ARCHITECTURE & DATA FLOW
     </div>
 
     <!-- 3-Column Diagram -->
@@ -554,9 +393,9 @@
 
       <!-- ─── User ─── -->
       <div style="text-align:center">
-        <div style="color:#c0392b;font-size:16px;font-weight:700;margin-bottom:18px">User</div>
+        <div style="color:#c0392b;font-size:15px;font-weight:700;margin-bottom:14px">User (Client)</div>
         <div style="display:inline-flex;align-items:center;justify-content:center">
-          <svg width="140" height="120" viewBox="0 0 140 120">
+          <svg width="130" height="110" viewBox="0 0 140 120">
             <rect x="15" y="5" width="110" height="75" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="2"/>
             <rect x="22" y="12" width="96" height="58" rx="3" fill="#e8f4f8"/>
             <rect x="55" y="80" width="30" height="8" fill="#333" rx="1"/>
@@ -575,47 +414,46 @@
       <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;gap:6px">
         <!-- Request arrow → -->
         <div style="text-align:center">
-          <div style="color:#7c3aed;font-size:10px;font-weight:700;font-family:'Inter',sans-serif;margin-bottom:2px">HTTP Request</div>
-          <svg width="90" height="16" viewBox="0 0 90 16">
+          <div style="color:#7c3aed;font-size:9.5px;font-weight:700;font-family:'Inter',sans-serif;margin-bottom:2px">HTTP Request</div>
+          <svg width="85" height="14" viewBox="0 0 90 16">
             <line x1="0" y1="8" x2="74" y2="8" stroke="#7c3aed" stroke-width="2"/>
             <polygon points="74,3 90,8 74,13" fill="#7c3aed"/>
           </svg>
         </div>
         <!-- Response arrow ← -->
         <div style="text-align:center">
-          <svg width="90" height="16" viewBox="0 0 90 16">
+          <svg width="85" height="14" viewBox="0 0 90 16">
             <line x1="16" y1="8" x2="90" y2="8" stroke="#2ecc71" stroke-width="2"/>
             <polygon points="16,3 0,8 16,13" fill="#2ecc71"/>
           </svg>
-          <div style="color:#2ecc71;font-size:10px;font-weight:700;font-family:'Inter',sans-serif;margin-top:2px">HTML + แผนที่ + กราฟ</div>
+          <div style="color:#2ecc71;font-size:9.5px;font-weight:700;font-family:'Inter',sans-serif;margin-top:2px">HTML + แผนที่ + กราฟ</div>
         </div>
       </div>
 
       <!-- ─── Web (Vercel + Components) ─── -->
       <div style="text-align:center">
-        <div style="color:#555;font-size:16px;font-weight:700;margin-bottom:10px">web</div>
-        <div style="background:#fff;border:2px solid #ddd;border-radius:18px;padding:22px 24px;display:inline-block;text-align:center;min-width:280px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+        <div style="color:#555;font-size:15px;font-weight:700;margin-bottom:8px">Web Application</div>
+        <div style="background:#fff;border:2px solid #ddd;border-radius:18px;padding:18px 20px;display:inline-block;text-align:center;min-width:270px;box-shadow:0 2px 10px rgba(0,0,0,0.05)">
           <!-- Vercel Logo -->
-          <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="18" viewBox="0 0 76 66"><path d="M38 0L76 66H0z" fill="#000"/></svg>
-            <span style="font-size:18px;font-weight:700;color:#000;font-family:'Inter',sans-serif">Vercel</span>
+          <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:10px">
+            <svg width="18" height="16" viewBox="0 0 76 66"><path d="M38 0L76 66H0z" fill="#000"/></svg>
+            <span style="font-size:16px;font-weight:700;color:#000;font-family:'Inter',sans-serif">Vercel Host</span>
           </div>
           <!-- Next.js Logo + Label -->
-          <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:16px">
-            <div style="width:44px;height:44px;background:#000;border-radius:50%;display:flex;align-items:center;justify-content:center">
-              <span style="color:#fff;font-size:22px;font-weight:800;font-family:'Inter',sans-serif">N</span>
+          <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:12px">
+            <div style="width:36px;height:36px;background:#000;border-radius:50%;display:flex;align-items:center;justify-content:center">
+              <span style="color:#fff;font-size:18px;font-weight:800;font-family:'Inter',sans-serif">N</span>
             </div>
-            <span style="font-size:14px;font-weight:600;color:#333;font-family:'Inter',sans-serif">Next.js 16</span>
+            <span style="font-size:13px;font-weight:600;color:#333;font-family:'Inter',sans-serif">Next.js 16 (React)</span>
           </div>
           <!-- Hosted Components List -->
-          <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:10px;padding:12px 16px;text-align:left">
-            <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-family:'Inter',sans-serif">สิ่งที่อยู่ใน Vercel</div>
-            <div style="font-size:12px;color:#333;line-height:1.9;font-family:'Noto Sans Thai','Inter',sans-serif">
+          <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:10px;padding:10px 14px;text-align:left">
+            <div style="font-size:9px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;font-family:'Inter',sans-serif">สถาปัตยกรรมภายในเว็บ</div>
+            <div style="font-size:11.5px;color:#333;line-height:1.8;font-family:'Noto Sans Thai','Inter',sans-serif">
               ⚛️ React Components (UI)<br>
-              🗺️ Leaflet (แผนที่ GIS)<br>
-              📈 Chart.js (กราฟสถิติ)<br>
-              📄 ไฟล์ GeoJSON (ข้อมูลแผนที่)<br>
-              📊 ไฟล์ JS Module (ข้อมูลกราฟ)
+              🗺️ Leaflet GIS (เอ็นจิ้นแผนที่)<br>
+              📈 Chart.js (คอมโพเนนต์วาดกราฟ)<br>
+              📄 ไฟล์ GeoJSON (เสมือนเป็น Database)
             </div>
           </div>
         </div>
@@ -625,56 +463,49 @@
       <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;gap:6px">
         <!-- GeoJSON coming in ← -->
         <div style="text-align:center">
-          <div style="color:#c0392b;font-size:10px;font-weight:700;font-family:'Inter',sans-serif;margin-bottom:2px">Shapefile → GeoJSON</div>
-          <svg width="90" height="16" viewBox="0 0 90 16">
+          <div style="color:#c0392b;font-size:9.5px;font-weight:700;font-family:'Inter',sans-serif;margin-bottom:2px">Preprocessing (JSON)</div>
+          <svg width="85" height="14" viewBox="0 0 90 16">
             <line x1="16" y1="8" x2="90" y2="8" stroke="#c0392b" stroke-width="2"/>
             <polygon points="16,3 0,8 16,13" fill="#c0392b"/>
           </svg>
         </div>
         <!-- Data label -->
-        <div style="background:#fef3cd;border:1px solid #f0d77b;border-radius:6px;padding:4px 10px;text-align:center">
-          <div style="color:#856404;font-size:10px;font-weight:700;font-family:'Noto Sans Thai','Inter',sans-serif">ข้อมูลที่ส่งมา</div>
-          <div style="color:#856404;font-size:9px;font-family:'Noto Sans Thai','Inter',sans-serif;line-height:1.6;margin-top:2px">
-            LST (°C) ทุกปี<br>
-            CH₄, CO, NO₂, O₃<br>
-            ค่าทำนาย 2027
+        <div style="background:#fef3cd;border:1px solid #f0d77b;border-radius:6px;padding:3px 8px;text-align:center">
+          <div style="color:#856404;font-size:9.5px;font-weight:700;font-family:'Noto Sans Thai','Inter',sans-serif">ข้อมูลที่ส่งมาแสดง</div>
+          <div style="color:#856404;font-size:8.5px;font-family:'Noto Sans Thai','Inter',sans-serif;line-height:1.5;margin-top:1px">
+            LST (°C) และ GHG รายปี<br>
+            ผลพยากรณ์อุณหภูมิ 2027
           </div>
         </div>
       </div>
 
       <!-- ─── Data Source ─── -->
       <div style="text-align:center">
-        <div style="color:#c0392b;font-size:16px;font-weight:700;margin-bottom:14px">Data Source</div>
-        <div style="background:#fff;border:2px solid #ddd;border-radius:18px;padding:24px 28px;display:inline-block;text-align:left;min-width:260px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+        <div style="color:#c0392b;font-size:15px;font-weight:700;margin-bottom:14px">Data Processing</div>
+        <div style="background:#fff;border:2px solid #ddd;border-radius:18px;padding:18px 20px;display:inline-block;text-align:left;min-width:250px;box-shadow:0 2px 10px rgba(0,0,0,0.05)">
           <!-- GEE Icon + Label -->
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;justify-content:center">
-            <svg width="28" height="28" viewBox="0 0 28 28">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;justify-content:center">
+            <svg width="24" height="24" viewBox="0 0 28 28">
               <circle cx="14" cy="14" r="13" fill="#4285f4" opacity="0.15" stroke="#4285f4" stroke-width="1.5"/>
               <path d="M14 4 C8 4 4 8.5 4 14s4 10 10 10 10-4.5 10-10S20 4 14 4z" fill="none" stroke="#4285f4" stroke-width="1.2"/>
               <ellipse cx="14" cy="14" rx="5" ry="10" fill="none" stroke="#4285f4" stroke-width="1"/>
               <line x1="4" y1="14" x2="24" y2="14" stroke="#4285f4" stroke-width="0.8"/>
-              <line x1="5" y1="14" x2="23" y2="14" stroke="#4285f4" stroke-width="0.6"/>
-              <line x1="5" y1="19" x2="23" y2="19" stroke="#4285f4" stroke-width="0.6"/>
             </svg>
-            <span style="font-size:13px;font-weight:600;color:#4285f4;font-family:'Inter',sans-serif">Google Earth Engine</span>
+            <span style="font-size:12.5px;font-weight:600;color:#4285f4;font-family:'Inter',sans-serif">Google Earth Engine</span>
           </div>
           <!-- MODIS -->
-          <div style="color:#333;font-size:13px;font-weight:600;margin-bottom:4px;font-family:'Noto Sans Thai','Inter',sans-serif">
-            ดาวเทียม MODIS = LST
+          <div style="color:#333;font-size:12px;font-weight:600;margin-bottom:2px;font-family:'Noto Sans Thai','Inter',sans-serif">
+            ดาวเทียม MODIS (LST)
           </div>
-          <div style="color:#555;font-size:12px;margin-bottom:12px;padding-left:10px;font-family:'Noto Sans Thai','Inter',sans-serif">
-            • ทำนาย LST 2027
+          <div style="color:#555;font-size:11.5px;margin-bottom:8px;padding-left:8px;font-family:'Noto Sans Thai','Inter',sans-serif">
+            • รังสีความร้อนเหนี่ยวนำอินฟราเรด
           </div>
           <!-- Sentinel-5P -->
-          <div style="color:#333;font-size:13px;font-weight:600;margin-bottom:4px;font-family:'Noto Sans Thai','Inter',sans-serif">
-            ดาวเทียม Sentinel-5P
+          <div style="color:#333;font-size:12px;font-weight:600;margin-bottom:2px;font-family:'Noto Sans Thai','Inter',sans-serif">
+            ดาวเทียม Sentinel-5P (GHG)
           </div>
-          <div style="color:#555;font-size:12px;padding-left:10px;line-height:1.8;font-family:'Noto Sans Thai','Inter',sans-serif">
-            • GHG<br>
-            • CO<br>
-            • O₃<br>
-            • CH₄<br>
-            • NO₂
+          <div style="color:#555;font-size:11.5px;padding-left:8px;line-height:1.7;font-family:'Noto Sans Thai','Inter',sans-serif">
+            • ปริมาณแก๊สมีเทน CH₄, CO, NO₂, O₃
           </div>
         </div>
       </div>
@@ -684,87 +515,168 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 4: Data Processing & Modeling -->
+<!-- SLIDE 3: Backend Data Pipeline (Python Code) -->
 <!-- ═══════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-content">
-    <div class="section-num">03 — ระบบหลังบ้าน & แบบจำลองทำนาย</div>
-    <h2 class="heading">กระบวนการจัดการข้อมูล & แบบจำลอง Random Forest</h2>
-    <p class="subtitle">การบีบอัดพิกัดเชิงพื้นที่ด้วย Python Data Pipeline และการพยากรณ์อุณหภูมิ LST ในปี 2027 ด้วยโมเดลปัญญาประดิษฐ์</p>
-    <div class="cards cols-3">
-      <div class="card" style="border-top:3px solid #0ea5e9; padding: 20px;">
-        <div class="card-icon" style="font-size:32px;margin-bottom:10px">🐍</div>
-        <h3 style="font-size:15px;margin-bottom:8px">Python Preprocessing Pipeline</h3>
-        <p style="font-size:12.5px;line-height:1.55;color:#94a3b8">แปลงจุดพิกัดดิบจากดาวเทียม 4,800 จุดในชลบุรี (Shapefile) บีบอัดพิกัดและเฉลี่ยข้อมูลด้วย Spatial Join (Point-in-Polygon) สะสมรายปีเข้าสู่ขอบเขต 11 อำเภอ เพื่อเพิ่มประสิทธิภาพหน้าเว็บ</p>
-        <span class="tag" style="background:rgba(14,165,233,0.12);color:#0ea5e9;margin-top:12px">GeoPandas & Shapefile</span>
+    <div class="section-num">ขั้นตอนที่ 2 : ระบบหลังบ้านและการแปลงข้อมูลเชิงพื้นที่</div>
+    <h2 class="heading">Backend Spatial Join (Python Code)</h2>
+    <p class="subtitle">สคริปต์ประมวลผลควบรวมพิกัดดิบจากดาวเทียม 4,800 จุด (Shapefile) ให้เฉลี่ยสะสมแยกตามขอบเขต 11 อำเภอชลบุรี</p>
+    <div class="split">
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#3572A5"></span> spatial_join_districts.py (ส่วนย่อ)</div>
+        <div class="code-block"><span class="kw">import</span> geopandas <span class="kw">as</span> gpd
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># 1. โหลดข้อมูลแผนที่ขอบเขตอำเภอ และพิกัดตรวจวัดความร้อน/แก๊ส</span>
+grid = gpd.read_file(<span class="str">'chonburi_gas_lst.geojson'</span>).to_crs(epsg=<span class="num">4326</span>)
+districts = gpd.read_file(<span class="str">'chonburi_districts.geojson'</span>).to_crs(epsg=<span class="num">4326</span>)
+
+<span class="cm"># 2. คัดกรองรูปหลายเหลี่ยมหลัก (ตัดพื้นที่ผืนน้ำทะเลที่ทับซ้อนทิ้ง)</span>
+districts[<span class="str">'geometry'</span>] = districts[<span class="str">'geometry'</span>].apply(keep_largest_polygon)
+
+<span class="cm"># 3. รันการ Spatial Join ตรวจสอบว่าพิกัดจุดดิบอยู่ในอำเภอใด</span>
+joined = gpd.sjoin(grid, districts[[<span class="str">'name'</span>, <span class="str">'geometry'</span>]], how=<span class="str">'left'</span>, predicate=<span class="str">'within'</span>)
+
+<span class="cm"># 4. คำนวณหาค่าเฉลี่ยสถิติเชิงพื้นที่ในแต่ละอำเภอแยกตามรายปี (2018-2026)</span>
+data_cols = [c <span class="kw">for</span> c <span class="kw">in</span> joined.columns <span class="kw">if</span> <span class="str">'LST_'</span> <span class="kw">in</span> c <span class="kw">or</span> <span class="str">'CH4_'</span> <span class="kw">in</span> c]
+district_agg = joined.groupby(<span class="str">'name'</span>)[data_cols].mean().reset_index()
+
+<span class="cm"># 5. เชื่อมรวมข้อมูลสถิติและค่าทำนายปี 2027 กลับเข้าขอบเขตอำเภอ</span>
+districts_out = districts.merge(district_agg, on=<span class="str">'name'</span>, how=<span class="str">'left'</span>)
+districts_out.to_file(<span class="str">'chonburi_districts_with_data.geojson'</span>, driver=<span class="str">'GeoJSON'</span>)</div>
       </div>
-      <div class="card" style="border-top:3px solid #f59e0b; padding: 20px;">
-        <div class="card-icon" style="font-size:32px;margin-bottom:10px">📄</div>
-        <h3 style="font-size:15px;margin-bottom:8px">Flat-file Serverless Database</h3>
-        <p style="font-size:12.5px;line-height:1.55;color:#94a3b8">เก็บข้อมูลเฉลี่ยในรูป GeoJSON และ JS Modules ในโฟลเดอร์ Public โดยตรง ไม่ต้องตั้งเซิร์ฟเวอร์ SQL ให้สิ้นเปลือง ช่วยลดภาระการโหลด แผนที่ขนาดใหญ่เรนเดอร์เสร็จได้ในพริบตา</p>
-        <span class="tag" style="background:rgba(245,158,11,0.12);color:#f59e0b;margin-top:12px">Static Flat-file GIS</span>
-      </div>
-      <div class="card" style="border-top:3px solid #34c759; padding: 20px;">
-        <div class="card-icon" style="font-size:32px;margin-bottom:10px">🤖</div>
-        <h3 style="font-size:15px;margin-bottom:8px">Random Forest Regression</h3>
-        <p style="font-size:12.5px;line-height:1.55;color:#94a3b8">ใช้ปัญญาประดิษฐ์จับความสัมพันธ์แบบไม่ใช่เส้นตรง (Non-linear) ระหว่างระดับก๊าซเรือนกระจกกับอุณหภูมิ LST ของจุดตรวจวัดย้อนหลัง 9 ปี เพื่อทำนายแนวโน้มปี 2027 ทั่วทุกเขตอำเภอ</p>
-        <span class="tag" style="background:rgba(52,199,89,0.12);color:#34c759;margin-top:12px">Machine Learning Model</span>
+      <div class="card" style="height:100%; border-color:rgba(124,58,237,0.15)">
+        <div class="card-icon" style="color:#a78bfa">⚡ ประสิทธิภาพสถาปัตยกรรม Flat-file</div>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1; margin-bottom:12px">
+          • <strong>แก้คอขวด CPU หน้าบ้าน:</strong> การโหลดจุดกริดดาวเทียม 4,800 จุดเพื่อเรนเดอร์ในเบราว์เซอร์จะทำให้หน้าเว็บกระตุกและช้า เราจึงย้ายมาประมวลผลหลังบ้านแบบ Static ล่วงหน้า
+        </p>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1; margin-bottom:12px">
+          • <strong>Spatial Average:</strong> โค้ดใช้ <code>gpd.sjoin</code> หาค่าเฉลี่ยเชิงเรขาคณิต (Spatial Mean) ของอุณหภูมิ LST และก๊าซ GHG รายปีเข้าสู่รูปทรงอำเภอ
+        </p>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1">
+          • <strong>ฝังข้อมูลเป็นก้อนเดียว (GeoJSON Properties):</strong> ผลลัพธ์ถูกจัดเก็บลงเป็น Properties ในไฟล์ GeoJSON ขนาดเล็ก 776 KB แทนฐานข้อมูล SQL หน้าบ้านจึงดึงข้อมูลมาวาดสีแผนที่ได้ทันที
+        </p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════ -->
-<!-- SLIDE 5: Results & Simulator -->
+<!-- SLIDE 4: Frontend GIS Map rendering (JavaScript Code) -->
 <!-- ═══════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-content">
-    <div class="section-num">04 — ผลลัพธ์และการจำลองเชิงนโยบาย</div>
-    <h2 class="heading">ผลลัพธ์ข้อมูลรายปี และ นโยบายจำลองเมืองสีเขียว</h2>
-    <p class="subtitle">สถิติสะสมจังหวัดชลบุรีตลอดทศวรรษ, ค่าพยากรณ์ 2027 จาก Random Forest และระบบจำลองอุณหภูมิอัจฉริยะ</p>
-    <div class="split wide-left">
-      <!-- Data Table -->
-      <div style="background:rgba(15,17,28,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px;overflow-x:auto">
-        <div style="font-size:11px;font-weight:700;color:#f46d43;margin-bottom:8px;text-transform:uppercase">สรุปผลข้อมูลเฉลี่ยจังหวัดชลบุรี (2018–2027)</div>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>ปี ค.ศ.</th>
-              <th>LST เฉลี่ย (°C)</th>
-              <th>มีเทน CH₄ (ppb)</th>
-              <th>ก๊าซ CO (x10⁻³)</th>
-              <th>ก๊าซ NO₂ (µmol/m²)</th>
-              <th>แหล่งข้อมูล</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>2018</td><td>32.30</td><td>1851.91</td><td>35.46</td><td>1.80</td><td><span class="pill green" style="background:rgba(52,199,89,0.12);color:#34c759;padding:2px 8px">MODIS/S5P</span></td></tr>
-            <tr><td>2020</td><td>34.12</td><td>1892.90</td><td>40.76</td><td>1.14</td><td><span class="pill green" style="background:rgba(52,199,89,0.12);color:#34c759;padding:2px 8px">MODIS/S5P</span></td></tr>
-            <tr><td>2022</td><td>32.81</td><td>1920.62</td><td>35.83</td><td>1.63</td><td><span class="pill green" style="background:rgba(52,199,89,0.12);color:#34c759;padding:2px 8px">MODIS/S5P</span></td></tr>
-            <tr><td>2024</td><td>34.09</td><td>1936.71</td><td>38.93</td><td>2.27</td><td><span class="pill green" style="background:rgba(52,199,89,0.12);color:#34c759;padding:2px 8px">MODIS/S5P</span></td></tr>
-            <tr><td>2026</td><td style="font-weight:700">33.60</td><td style="font-weight:700">1942.74</td><td style="font-weight:700">40.03</td><td style="font-weight:700;color:#e11d48">3.14</td><td><span class="pill green" style="background:rgba(52,199,89,0.12);color:#34c759;padding:2px 8px">MODIS/S5P</span></td></tr>
-            <tr class="highlight-row"><td>2027</td><td style="color:#f59e0b;font-weight:900">33.36</td><td>—</td><td>—</td><td>—</td><td><span class="pill yellow" style="background:rgba(245,158,11,0.15);color:#f59e0b;padding:2px 8px">Random Forest</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="section-num">ขั้นตอนที่ 3 : ระบบหน้าบ้านและการเรนเดอร์แผนที่ GIS</div>
+    <h2 class="heading">Frontend Map View Component (Leaflet JS)</h2>
+    <p class="subtitle">การโหลดแผนที่โพลีกอนระบายเฉดสีแบบ Choropleth และการเชื่อมโยงปฏิสัมพันธ์ของเมาส์ผู้ใช้เพื่อแสดง Popup</p>
+    <div class="split">
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#f1e05a"></span> components/MapView.js (ส่วนย่อ)</div>
+        <div class="code-block"><span class="kw">import</span> L <span class="kw">from</span> <span class="str">'leaflet'</span>;
+<span class="kw">import</span> { getLstColor } <span class="kw">from</span> <span class="str">'../data/sampleData'</span>;
 
-      <!-- Insights & Simulator -->
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div class="card" style="border-left:3px solid #e11d48;padding:14px;margin-bottom:0">
-          <h3 style="font-size:13px;margin-bottom:4px">📈 ข้อค้นพบหลักเชิงกายภาพ</h3>
-          <p style="font-size:11.5px;color:#94a3b8;line-height:1.55;margin-bottom:0">
-            • <strong>ก๊าซสะสมสูงขึ้น:</strong> CH₄ พุ่งสะสมตัว <strong>+4.9%</strong> ขณะที่ NO₂ เพิ่มขึ้นสูงถึง <strong>+74%</strong> ทั่วชลบุรี บ่งชี้กิจกรรมทางอุตสาหกรรมในพื้นที่เชิงกายภาพสูงขึ้นชัดเจน<br>
-            • <strong>UHI Hotspots:</strong> เขต อ.เมืองชลบุรี, ศรีราชา และ บางละมุง มีค่าอุณหภูมิ LST ร้อนจัดสะสมมากที่สุดต่อเนื่องทุกปี
-          </p>
-        </div>
-        <div class="card" style="border-left:3px solid #34c759;padding:14px;background:rgba(52,199,89,0.03);margin-bottom:0">
-          <h3 style="font-size:13px;margin-bottom:4px;color:#34c759">🌳 Green Policy Simulator (ระบบจำลอง)</h3>
-          <p style="font-size:11.5px;color:#94a3b8;line-height:1.55;margin-bottom:0">
-            ติดตั้งฟังก์ชันจำลองสภาพภูมิอากาศเชิงโต้ตอบบน Dashboard:<br>
-            • ผู้ใช้จำลอง <strong>ลดแก๊สคาร์บอน (CO)</strong> และ <strong>เพิ่มพื้นที่สีเขียว</strong> ทั่วชลบุรีได้ถึง 0 - 50%<br>
-            • <strong>Real-time Update:</strong> แผนที่ Choropleth ของ Leaflet จะหักลดเฉดความร้อนอุณหภูมิ LST ลงทันทีบนบราวเซอร์อย่างเป็นรูปธรรม
-          </p>
-        </div>
+<span class="kw">export default function</span> <span class="fn">MapView</span>({ yearIndex, onZoneSelect, tempDrop = <span class="num">0</span> }) {
+  <span class="kw">const</span> mapRef = useRef(<span class="kw">null</span>);
+
+  useEffect(() => {
+    <span class="cm">// 1. Initialize Leaflet Map Object</span>
+    <span class="kw">const</span> map = L.map(mapRef.current, { center: [<span class="num">13.3</span>, <span class="num">101.1</span>], zoom: <span class="num">9</span> });
+    
+    <span class="cm">// 2. โหลดไฟล์ GeoJSON สะสมเฉลี่ยจาก Public Assets โฟลเดอร์</span>
+    fetch(<span class="str">'/chonburi_districts_with_data.geojson'</span>)
+      .then(res => res.json())
+      .then(data => {
+        <span class="cm">// 3. เรนเดอร์โพลีกอนรายอำเภอลงบนแผนที่แบบ Vector Layer</span>
+        L.geoJSON(data, {
+          style: feature => ({
+            <span class="cm">// นำอุณหภูมิ LST หักลบค่าจำลองระดับความเย็น (tempDrop) ก่อนแสดงผลสี</span>
+            fillColor: getLstColor(feature.properties[`LST_2026`] - tempDrop),
+            weight: <span class="num">1.5</span>, color: <span class="str">'rgba(255,255,255,0.3)'</span>, fillOpacity: <span class="num">0.7</span>
+          }),
+          onEachFeature: (f, layer) => {
+            layer.bindTooltip(<span class="fn">buildPopupHTML</span>(f.properties));
+            layer.on(<span class="str">'click'</span>, () => onZoneSelect(f.properties));
+          }
+        }).addTo(map);
+      });
+  }, [tempDrop]);
+
+  <span class="kw">return</span> &lt;<span class="kw">div</span> ref={mapRef} id=<span class="str">"map"</span> /&gt;;
+}</div>
+      </div>
+      <div class="card" style="height:100%; border-color:rgba(124,58,237,0.15)">
+        <div class="card-icon" style="color:#a78bfa">🗺️ จุดเด่นทางเทคนิคฝั่งหน้าบ้าน</div>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1; margin-bottom:12px">
+          • <strong>Client-side Rendering (CSR):</strong> ใช้ Next.js dynamic import ป้องกันปัญหา SSR ของ Leaflet ที่พึ่งพาอ็อบเจกต์ <code>window</code> ของบราวเซอร์
+        </p>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1; margin-bottom:12px">
+          • <strong>Choropleth Rendering:</strong> ฟังก์ชัน <code>getLstColor</code> จะสแกนหาค่าอุณหภูมิของแต่ละโพลีกอนอำเภอใน GeoJSON เพื่อระบายเฉดสีแดงส้ม (ร้อนจัด) และสีสว่าง (เย็น)
+        </p>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1">
+          • <strong>Dynamic Style Update:</strong> แผนที่จะตรวจจับการเปลี่ยนค่า <code>tempDrop</code> เพื่อเปลี่ยนสีโพลีกอนของจริงโดยไม่ต้องวาดแผนที่ใหม่ทั้งหมด ทำให้การเปลี่ยนสีลื่นไหล
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 5: Interactive Simulation & State Component (React Code) -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">ขั้นตอนที่ 4 : แดชบอร์ดและตัวจำลองผลกระทบเมืองสีเขียว</div>
+    <h2 class="heading">State & Interactive Simulation Component</h2>
+    <p class="subtitle">ระบบจัดการสถานะตัวแปร Slider และสมการจำลองอุณหภูมิที่จะลดลงจากการหักล้างปริมาณคาร์บอนและป่าไม้แบบเรียลไทม์</p>
+    <div class="split">
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#f1e05a"></span> components/Dashboard.js (ส่วนย่อ)</div>
+        <div class="code-block"><span class="kw">import</span> { useState, useMemo } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> MapView <span class="kw">from</span> <span class="str">'./MapView'</span>;
+
+<span class="kw">export default function</span> <span class="fn">Dashboard</span>() {
+  <span class="cm">// 1. State ของสไลเดอร์ลดก๊าซ CO (%) และเพิ่มป่าไม้ (%)</span>
+  <span class="kw">const</span> [simCo2, setSimCo2] = useState(<span class="num">0</span>);
+  <span class="kw">const</span> [simGreen, setSimGreen] = useState(<span class="num">0</span>);
+
+  <span class="cm">// 2. สมการประเมินความร้อนผิวพื้นที่หักล้างลงเชิงคณิตศาสตร์ (Simulation Model)</span>
+  <span class="cm">// ลด CO 1% = LST ลดลง 0.03°C | เพิ่มพื้นที่สีเขียว 1% = LST ลดลง 0.05°C</span>
+  <span class="kw">const</span> tempDrop = useMemo(() => {
+    <span class="kw">return</span> (simCo2 * <span class="num">0.03</span> + simGreen * <span class="num">0.05</span>).toFixed(<span class="num">2</span>);
+  }, [simCo2, simGreen]);
+
+  <span class="kw">return</span> (
+    &lt;<span class="kw">div</span> className=<span class="str">"dashboard-layout"</span>&gt;
+      &lt;<span class="kw">aside</span> className=<span class="str">"sidebar"</span>&gt;
+        &lt;<span class="kw">h3</span>&gt;Green Policy Simulation&lt;/<span class="kw">h3</span>&gt;
+        &lt;<span class="kw">label</span>&gt;ลดระดับ CO: {simCo2}%&lt;/<span class="kw">label</span>&gt;
+        &lt;<span class="kw">input</span> type=<span class="str">"range"</span> min=<span class="str">"0"</span> max=<span class="str">"50"</span> onChange={e => setSimCo2(Number(e.target.value))} /&gt;
+        
+        &lt;<span class="kw">label</span>&gt;เพิ่มระดับสีเขียว: {simGreen}%&lt;/<span class="kw">label</span>&gt;
+        &lt;<span class="kw">input</span> type=<span class="str">"range"</span> min=<span class="str">"0"</span> max=<span class="str">"50"</span> onChange={e => setSimGreen(Number(e.target.value))} /&gt;
+        
+        &lt;<span class="kw">div</span> className=<span class="str">"result"</span>&gt;อุณหภูมิลดลงจำลอง: -{tempDrop} °C&lt;/<span class="kw">div</span>&gt;
+      &lt;/<span class="kw">aside</span>&gt;
+      
+      &lt;<span class="kw">main</span> className=<span class="str">"map-container"</span>&gt;
+        &lt;<span class="kw">MapView</span> tempDrop={parseFloat(tempDrop)} /&gt;
+      &lt;/<span class="kw">main</span>&gt;
+    &lt;/<span class="kw">div</span>&gt;
+  );
+}</div>
+      </div>
+      <div class="card" style="height:100%; border-color:rgba(124,58,237,0.15)">
+        <div class="card-icon" style="color:#a78bfa">⚛️ สถาปัตยกรรม React State & UI Flow</div>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1; margin-bottom:12px">
+          • <strong>สมการตอบสนองระดับมิลลิวินาที:</strong> การประมวลผล <code>useMemo</code> จะเกิดขึ้นเฉพาะเวลาที่ค่าสไลเดอร์มีการเปลี่ยนแปลง เพื่อประหยัด CPU ในการประเมินผลเชิงเลขคณิต
+        </p>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1; margin-bottom:12px">
+          • <strong>Unidirectional Data Flow:</strong> ข้อมูลไหลในทิศทางเดียวจาก <code>Dashboard.js</code> (สไลเดอร์) ผ่าน Props <code>tempDrop</code> ไปยัง <code>MapView.js</code> เพื่อปรับเปลี่ยนการระบายเฉดสีโพลีกอนอำเภอต่างๆ
+        </p>
+        <p style="font-size:13px; line-height:1.75; color:#cbd5e1">
+          • <strong>การจำลอง 100% Client-side:</strong> ลดการส่งคำร้อง HTTP ไปที่ Vercel ทุกครั้งที่เลื่อนแถบจำลอง ทำให้ผู้ใช้งานสามารถลากสไลเดอร์และเห็นการอัปเดตของแผนที่ได้ทันทีโดยไม่มีการรอโหลดหน้าเว็บใหม่
+        </p>
       </div>
     </div>
   </div>
