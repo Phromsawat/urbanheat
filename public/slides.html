@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CitySweat — Presentation Slides</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ─────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+      background: #08090e;
+      color: #e2e8f0;
+      overflow: hidden;
+      height: 100dvh;
+      width: 100dvw;
+    }
+
+    /* ── Slide Container ─────────────────── */
+    .slides-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100dvh;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.15, 1);
+    }
+    .slide {
+      min-width: 100vw;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Background Effects ───────────────── */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(244,109,67,0.06), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .slide > * { position: relative; z-index: 1; }
+
+    /* ── Slide Content ───────────────────── */
+    .slide-content {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* ── Title Slide ─────────────────────── */
+    .slide-title {
+      text-align: center;
+    }
+    .slide-title .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244,109,67,0.12);
+      border: 1px solid rgba(244,109,67,0.25);
+      color: #f46d43;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 28px;
+    }
+    .slide-title h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #f46d43, #fee08b, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    .slide-title h2 {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      color: #94a3b8;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto 32px;
+    }
+    .slide-title .meta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .slide-title .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .meta .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── Section Heading ─────────────────── */
+    .section-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f46d43;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .slide h2.heading {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: #f1f5f9;
+    }
+    .slide .subtitle {
+      font-size: 15px;
+      color: #64748b;
+      margin-bottom: 36px;
+      line-height: 1.6;
+      max-width: 750px;
+    }
+
+    /* ── Cards Grid ───────────────────────── */
+    .cards {
+      display: grid;
+      gap: 18px;
+    }
+    .cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(244,109,67,0.2);
+      transform: translateY(-2px);
+    }
+    .card .card-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #f1f5f9;
+    }
+    .card p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+    .card .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* ── Code Block ──────────────────────── */
+    .code-block {
+      background: rgba(15,17,28,0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 20px 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      overflow-x: auto;
+      white-space: pre;
+      max-height: 340px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.12) transparent;
+    }
+    .code-block .kw { color: #c084fc; }
+    .code-block .fn { color: #67e8f9; }
+    .code-block .str { color: #86efac; }
+    .code-block .cm { color: #475569; }
+    .code-block .num { color: #fbbf24; }
+    .code-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .code-label .dot-lang {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+
+    /* ── Flow Diagram ────────────────────── */
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+    .flow-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      color: #e2e8f0;
+      min-width: 120px;
+      transition: all 0.3s;
+    }
+    .flow-box:hover { border-color: rgba(244,109,67,0.4); }
+    .flow-box small { display: block; font-size: 10px; color: #64748b; font-weight: 400; margin-top: 4px; }
+    .flow-arrow {
+      color: #f46d43;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* ── Table ────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .data-table th {
+      background: rgba(244,109,67,0.1);
+      color: #f46d43;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+    .data-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: #cbd5e1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+    .data-table .highlight-row td {
+      background: rgba(244,109,67,0.06);
+      color: #f59e0b;
+      font-weight: 600;
+    }
+
+    /* ── Split Layout ────────────────────── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .split.wide-left { grid-template-columns: 1.3fr 1fr; }
+    .split.wide-right { grid-template-columns: 1fr 1.3fr; }
+
+    /* ── Pill Badges ─────────────────────── */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .pill.orange { background: rgba(244,109,67,0.12); color: #f46d43; }
+    .pill.green  { background: rgba(52,199,89,0.12); color: #34c759; }
+    .pill.purple { background: rgba(168,85,247,0.12); color: #a855f7; }
+    .pill.blue   { background: rgba(14,165,233,0.12); color: #0ea5e9; }
+    .pill.red    { background: rgba(225,29,72,0.12); color: #e11d48; }
+    .pill.yellow { background: rgba(245,158,11,0.12); color: #f59e0b; }
+
+    /* ── List ─────────────────────────────── */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .feature-list li::before {
+      content: '▸';
+      color: #f46d43;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Progress Bar ────────────────────── */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f46d43, #f59e0b, #fee08b);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.15, 1);
+      z-index: 100;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ── Navigation ──────────────────────── */
+    .nav-controls {
+      position: fixed;
+      bottom: 24px;
+      right: 32px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      z-index: 50;
+    }
+    .nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(15,17,28,0.8);
+      backdrop-filter: blur(12px);
+      color: #94a3b8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover { background: rgba(244,109,67,0.15); color: #f46d43; border-color: rgba(244,109,67,0.3); }
+    .nav-btn:active { transform: scale(0.95); }
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #64748b;
+      background: rgba(15,17,28,0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 16px;
+      border-radius: 10px;
+    }
+    .slide-counter .current { color: #f46d43; font-weight: 700; }
+
+    /* ── Dot Nav ──────────────────────────── */
+    .dot-nav {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 50;
+    }
+    .dot-nav button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.25s;
+      padding: 0;
+    }
+    .dot-nav button:hover { border-color: #f46d43; }
+    .dot-nav button.active {
+      background: #f46d43;
+      border-color: #f46d43;
+      width: 10px;
+      height: 22px;
+      border-radius: 5px;
+    }
+
+    /* ── Highlight Box ───────────────────── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(244,109,67,0.08), rgba(245,158,11,0.05));
+      border: 1px solid rgba(244,109,67,0.2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .highlight-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f59e0b;
+      margin-bottom: 8px;
+    }
+    .highlight-box p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+
+    /* ── Animations ──────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .slide.active .slide-content > * {
+      animation: fadeInUp 0.6s ease both;
+    }
+    .slide.active .slide-content > *:nth-child(1) { animation-delay: 0.05s; }
+    .slide.active .slide-content > *:nth-child(2) { animation-delay: 0.12s; }
+    .slide.active .slide-content > *:nth-child(3) { animation-delay: 0.20s; }
+    .slide.active .slide-content > *:nth-child(4) { animation-delay: 0.28s; }
+    .slide.active .slide-content > *:nth-child(5) { animation-delay: 0.35s; }
+    .slide.active .slide-content > *:nth-child(6) { animation-delay: 0.42s; }
+
+    /* ── Responsive ──────────────────────── */
+    @media (max-width: 900px) {
+      .slide { padding: 40px 28px; }
+      .cards.cols-2, .cards.cols-3, .cards.cols-4 { grid-template-columns: 1fr; }
+      .split, .split.wide-left, .split.wide-right { grid-template-columns: 1fr; }
+      .flow { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- Dot Navigation -->
+<div class="dot-nav" id="dotNav"></div>
+
+<!-- Bottom Nav -->
+<div class="nav-controls">
+  <button class="nav-btn" id="btnPrev" title="ก่อนหน้า (←)">◀</button>
+  <div class="slide-counter"><span class="current" id="curSlide">1</span> / <span id="totalSlides">14</span></div>
+  <button class="nav-btn" id="btnNext" title="ถัดไป (→)">▶</button>
+</div>
+
+<div class="slides-wrapper" id="slidesWrapper">
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 1: Title -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide active">
+  <div class="slide-content slide-title">
+    <div class="badge">🔥 Mini Project Y4/T2 — 2026</div>
+    <h1>CitySweat</h1>
+    <h2>ระบบวิเคราะห์ความสัมพันธ์ระหว่างก๊าซเรือนกระจก (GHG)<br>กับอุณหภูมิผิวพื้น (LST) ในจังหวัดชลบุรี</h2>
+    <div class="meta">
+      <span><span class="dot" style="background:#f46d43"></span> ดาวเทียม MODIS (LST)</span>
+      <span><span class="dot" style="background:#a855f7"></span> Sentinel-5P (GHG)</span>
+      <span><span class="dot" style="background:#34c759"></span> Random Forest Regression</span>
+      <span><span class="dot" style="background:#0ea5e9"></span> 11 อำเภอ, 4,800 Grid Points</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 2: Overview -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">01 — บทนำ</div>
+    <h2 class="heading">ภาพรวมโครงการ</h2>
+    <p class="subtitle">ศึกษาปรากฏการณ์เกาะความร้อนเมือง (UHI) ในจังหวัดชลบุรี โดยวิเคราะห์ข้อมูลจริงจากดาวเทียมย้อนหลัง 9 ปี (2018–2026) และพยากรณ์ปี 2027</p>
+    <div class="cards cols-3">
+      <div class="card">
+        <div class="card-icon">🌡️</div>
+        <h3>Land Surface Temperature</h3>
+        <p>วัดอุณหภูมิผิวพื้นจริงจากรังสีอินฟราเรดด้วยดาวเทียม MODIS ครอบคลุมทั้งจังหวัด</p>
+        <span class="tag" style="background:rgba(244,109,67,0.12);color:#f46d43">MODIS Thermal IR</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>Greenhouse Gases</h3>
+        <p>ตรวจวัดก๊าซเรือนกระจก 4 ชนิด: CH₄, CO, NO₂ และ O₃ จากดาวเทียม Sentinel-5P</p>
+        <span class="tag" style="background:rgba(168,85,247,0.12);color:#a855f7">Sentinel-5P</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>ML Prediction 2027</h3>
+        <p>ใช้แบบจำลอง Random Forest Regression เพื่อทำนายอุณหภูมิผิวพื้นล่วงหน้า 1 ปี</p>
+        <span class="tag" style="background:rgba(52,199,89,0.12);color:#34c759">Random Forest</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 3: Architecture (Diagram Style) -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide" style="background:#ffffff;padding:50px 70px">
+  <div class="slide-content" style="max-width:1200px">
+    <!-- Title -->
+    <div style="margin-bottom:8px">
+      <span style="display:inline-block;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#1a1a2e;border:3.5px solid #7c3aed;padding:4px 24px;line-height:1.2;font-family:'Inter',sans-serif">WEB GIS</span>
+    </div>
+    <div style="font-size:clamp(1rem,2vw,1.4rem);font-weight:700;color:#333;margin-bottom:36px;font-family:'Inter','Noto Sans Thai',sans-serif;letter-spacing:1px">
+      ขั้นตอนที่ 1 : SYSTEM ARCHITECTURE
+    </div>
+
+    <!-- 3-Column Diagram -->
+    <div style="display:grid;grid-template-columns:1fr auto 1.6fr auto 1.5fr;align-items:center;gap:0">
+
+      <!-- ─── User ─── -->
+      <div style="text-align:center">
+        <div style="color:#c0392b;font-size:16px;font-weight:700;margin-bottom:18px">User</div>
+        <div style="display:inline-flex;align-items:center;justify-content:center">
+          <svg width="140" height="120" viewBox="0 0 140 120">
+            <rect x="15" y="5" width="110" height="75" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="2"/>
+            <rect x="22" y="12" width="96" height="58" rx="3" fill="#e8f4f8"/>
+            <rect x="55" y="80" width="30" height="8" fill="#333" rx="1"/>
+            <ellipse cx="70" cy="94" rx="28" ry="5" fill="#444"/>
+            <circle cx="50" cy="35" r="3" fill="#3498db" opacity="0.6"/>
+            <circle cx="65" cy="35" r="3" fill="#e74c3c" opacity="0.6"/>
+            <circle cx="80" cy="35" r="3" fill="#2ecc71" opacity="0.6"/>
+            <rect x="35" y="45" width="50" height="3" rx="1" fill="#bdc3c7"/>
+            <rect x="35" y="52" width="40" height="3" rx="1" fill="#bdc3c7"/>
+            <rect x="35" y="59" width="30" height="3" rx="1" fill="#bdc3c7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Arrow: User ↔ Web (bidirectional with labels) -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;gap:6px">
+        <!-- Request arrow → -->
+        <div style="text-align:center">
+          <div style="color:#7c3aed;font-size:10px;font-weight:700;font-family:'Inter',sans-serif;margin-bottom:2px">HTTP Request</div>
+          <svg width="90" height="16" viewBox="0 0 90 16">
+            <line x1="0" y1="8" x2="74" y2="8" stroke="#7c3aed" stroke-width="2"/>
+            <polygon points="74,3 90,8 74,13" fill="#7c3aed"/>
+          </svg>
+        </div>
+        <!-- Response arrow ← -->
+        <div style="text-align:center">
+          <svg width="90" height="16" viewBox="0 0 90 16">
+            <line x1="16" y1="8" x2="90" y2="8" stroke="#2ecc71" stroke-width="2"/>
+            <polygon points="16,3 0,8 16,13" fill="#2ecc71"/>
+          </svg>
+          <div style="color:#2ecc71;font-size:10px;font-weight:700;font-family:'Inter',sans-serif;margin-top:2px">HTML + แผนที่ + กราฟ</div>
+        </div>
+      </div>
+
+      <!-- ─── Web (Vercel + Components) ─── -->
+      <div style="text-align:center">
+        <div style="color:#555;font-size:16px;font-weight:700;margin-bottom:10px">web</div>
+        <div style="background:#fff;border:2px solid #ddd;border-radius:18px;padding:22px 24px;display:inline-block;text-align:center;min-width:280px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+          <!-- Vercel Logo -->
+          <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="18" viewBox="0 0 76 66"><path d="M38 0L76 66H0z" fill="#000"/></svg>
+            <span style="font-size:18px;font-weight:700;color:#000;font-family:'Inter',sans-serif">Vercel</span>
+          </div>
+          <!-- Next.js Logo + Label -->
+          <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:16px">
+            <div style="width:44px;height:44px;background:#000;border-radius:50%;display:flex;align-items:center;justify-content:center">
+              <span style="color:#fff;font-size:22px;font-weight:800;font-family:'Inter',sans-serif">N</span>
+            </div>
+            <span style="font-size:14px;font-weight:600;color:#333;font-family:'Inter',sans-serif">Next.js 16</span>
+          </div>
+          <!-- Hosted Components List -->
+          <div style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:10px;padding:12px 16px;text-align:left">
+            <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-family:'Inter',sans-serif">สิ่งที่อยู่ใน Vercel</div>
+            <div style="font-size:12px;color:#333;line-height:1.9;font-family:'Noto Sans Thai','Inter',sans-serif">
+              ⚛️ React Components (UI)<br>
+              🗺️ Leaflet (แผนที่ GIS)<br>
+              📈 Chart.js (กราฟสถิติ)<br>
+              📄 ไฟล์ GeoJSON (ข้อมูลแผนที่)<br>
+              📊 ไฟล์ JS Module (ข้อมูลกราฟ)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow: Web ← Data Source (with label) -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;gap:6px">
+        <!-- GeoJSON coming in ← -->
+        <div style="text-align:center">
+          <div style="color:#c0392b;font-size:10px;font-weight:700;font-family:'Inter',sans-serif;margin-bottom:2px">Shapefile → GeoJSON</div>
+          <svg width="90" height="16" viewBox="0 0 90 16">
+            <line x1="16" y1="8" x2="90" y2="8" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="16,3 0,8 16,13" fill="#c0392b"/>
+          </svg>
+        </div>
+        <!-- Data label -->
+        <div style="background:#fef3cd;border:1px solid #f0d77b;border-radius:6px;padding:4px 10px;text-align:center">
+          <div style="color:#856404;font-size:10px;font-weight:700;font-family:'Noto Sans Thai','Inter',sans-serif">ข้อมูลที่ส่งมา</div>
+          <div style="color:#856404;font-size:9px;font-family:'Noto Sans Thai','Inter',sans-serif;line-height:1.6;margin-top:2px">
+            LST (°C) ทุกปี<br>
+            CH₄, CO, NO₂, O₃<br>
+            ค่าทำนาย 2027
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Data Source ─── -->
+      <div style="text-align:center">
+        <div style="color:#c0392b;font-size:16px;font-weight:700;margin-bottom:14px">Data Source</div>
+        <div style="background:#fff;border:2px solid #ddd;border-radius:18px;padding:24px 28px;display:inline-block;text-align:left;min-width:260px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+          <!-- GEE Icon + Label -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;justify-content:center">
+            <svg width="28" height="28" viewBox="0 0 28 28">
+              <circle cx="14" cy="14" r="13" fill="#4285f4" opacity="0.15" stroke="#4285f4" stroke-width="1.5"/>
+              <path d="M14 4 C8 4 4 8.5 4 14s4 10 10 10 10-4.5 10-10S20 4 14 4z" fill="none" stroke="#4285f4" stroke-width="1.2"/>
+              <ellipse cx="14" cy="14" rx="5" ry="10" fill="none" stroke="#4285f4" stroke-width="1"/>
+              <line x1="4" y1="14" x2="24" y2="14" stroke="#4285f4" stroke-width="0.8"/>
+              <line x1="5" y1="9" x2="23" y2="9" stroke="#4285f4" stroke-width="0.6"/>
+              <line x1="5" y1="19" x2="23" y2="19" stroke="#4285f4" stroke-width="0.6"/>
+            </svg>
+            <span style="font-size:13px;font-weight:600;color:#4285f4;font-family:'Inter',sans-serif">Google Earth Engine</span>
+          </div>
+          <!-- MODIS -->
+          <div style="color:#333;font-size:13px;font-weight:600;margin-bottom:4px;font-family:'Noto Sans Thai','Inter',sans-serif">
+            ดาวเทียม MODIS = LST
+          </div>
+          <div style="color:#555;font-size:12px;margin-bottom:12px;padding-left:10px;font-family:'Noto Sans Thai','Inter',sans-serif">
+            • ทำนาย LST 2027
+          </div>
+          <!-- Sentinel-5P -->
+          <div style="color:#333;font-size:13px;font-weight:600;margin-bottom:4px;font-family:'Noto Sans Thai','Inter',sans-serif">
+            ดาวเทียม Sentinel-5P
+          </div>
+          <div style="color:#555;font-size:12px;padding-left:10px;line-height:1.8;font-family:'Noto Sans Thai','Inter',sans-serif">
+            • GHG<br>
+            • CO<br>
+            • O₃<br>
+            • CH₄<br>
+            • NO₂
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 4: Data Sources -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">03 — แหล่งข้อมูล</div>
+    <h2 class="heading">ข้อมูลดาวเทียมที่ใช้</h2>
+    <p class="subtitle">ข้อมูลทั้งหมดผ่านกระบวนการประมวลผลจาก Google Earth Engine แล้วส่งออกเป็น Shapefile</p>
+    <div class="split">
+      <div class="cards" style="grid-template-columns:1fr;">
+        <div class="card" style="border-color:rgba(244,109,67,0.2)">
+          <div class="card-icon">🛰️</div>
+          <h3>MODIS — อุณหภูมิผิวพื้น (LST)</h3>
+          <p>ดาวเทียมระบบ MODIS ตรวจวัดรังสีอินฟราเรดความร้อนจากพื้นผิวโลก ครอบคลุมพื้นที่ศึกษาจังหวัดชลบุรีทั้ง 11 อำเภอ ย้อนหลัง 9 ปี (2018–2026)</p>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <span class="pill orange">LST (°C)</span>
+            <span class="pill yellow">ปี 2018–2026</span>
+          </div>
+        </div>
+        <div class="card" style="border-color:rgba(168,85,247,0.2)">
+          <div class="card-icon">🌍</div>
+          <h3>Sentinel-5P — ก๊าซเรือนกระจก (GHG)</h3>
+          <p>ดาวเทียม Sentinel-5P (Copernicus Programme) วัดปริมาณสะสมก๊าซเรือนกระจกและมลพิษทางอากาศ 4 ชนิดหลัก</p>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <span class="pill purple">CH₄ (ppb)</span>
+            <span class="pill orange">CO (mol/m²)</span>
+            <span class="pill red">NO₂ (mol/m²)</span>
+            <span class="pill blue">O₃ (mol/m²)</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-color:rgba(52,199,89,0.2)">
+          <div class="card-icon">🧠</div>
+          <h3>Random Forest Regression</h3>
+          <p>แบบจำลองประเภท Ensemble Learning ที่รวมผลลัพธ์จาก Decision Tree หลายต้น ช่วยจับความสัมพันธ์แบบ Non-linear ระหว่าง GHG กับ LST</p>
+          <ul class="feature-list" style="margin-top:14px">
+            <li>ข้อมูลฝึกจากปี 2018–2026 (4,800 จุด)</li>
+            <li>ทำนาย LST ปี 2027 แยกรายอำเภอ</li>
+            <li>ค่าทำนายเฉลี่ย 33.36°C</li>
+            <li>เปลี่ยนแปลง –0.24°C จากปี 2026</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 5: Backend Pipeline 1 — convert_shp.py -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">04 — ระบบหลังบ้าน</div>
+    <h2 class="heading">ขั้นตอนที่ 1: แปลง Shapefile → GeoJSON</h2>
+    <p class="subtitle">สคริปต์ convert_shp.py อ่านไฟล์ Shapefile ดิบจาก GIS แล้วแปลงค่าพิกัด, ปัดทศนิยม, เปลี่ยน NaN → null ตามมาตรฐาน JSON</p>
+    <div class="split wide-right">
+      <div>
+        <ul class="feature-list">
+          <li>อ่านข้อมูลจุดพิกัดกริดดาวเทียม 4,800 จุดทั่วจังหวัดชลบุรี</li>
+          <li>ปัดตำแหน่งพิกัดทศนิยม 5 ตำแหน่ง (ความแม่นยำ ±1.1m) เพื่อลดขนาดไฟล์</li>
+          <li>แปลงค่าผิดปกติ NaN/Infinity → null ป้องกัน JSON parse error</li>
+          <li>ส่งออก GeoJSON แบบ compact (ไม่มีช่องว่าง) เพื่อความเร็วในการโหลด</li>
+        </ul>
+        <div class="highlight-box" style="margin-top:16px">
+          <h4>📂 ไฟล์ผลลัพธ์</h4>
+          <p><strong>chonburi_gas_lst.geojson</strong> — จุดกริด 4,800 จุด พร้อมค่า LST, CH₄, CO, NO₂, O₃, SO₂ ครบทุกปี<br>
+          <strong>chonburi_predict_2027.geojson</strong> — ค่าทำนาย LST 2027</p>
+        </div>
+      </div>
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#3572A5"></span> convert_shp.py</div>
+        <div class="code-block"><span class="kw">import</span> shapefile, json, math, os
+
+<span class="kw">def</span> <span class="fn">shp_to_geojson</span>(shp_path, out_path):
+    sf = shapefile.<span class="fn">Reader</span>(shp_path)
+    fields = [f[<span class="num">0</span>] <span class="kw">for</span> f <span class="kw">in</span> sf.fields[<span class="num">1</span>:]]
+    features = []
+
+    <span class="kw">for</span> rec <span class="kw">in</span> sf.<span class="fn">iterShapeRecords</span>():
+        geom = rec.shape.__geo_interface__
+        props = {}
+        <span class="kw">for</span> k, v <span class="kw">in</span> <span class="fn">zip</span>(fields, rec.record):
+            <span class="kw">if</span> <span class="fn">isinstance</span>(v, float):
+                <span class="cm"># NaN/Inf → null (JSON safe)</span>
+                props[k] = <span class="kw">None</span> <span class="kw">if</span> math.<span class="fn">isnan</span>(v) \
+                    <span class="kw">else</span> <span class="fn">round</span>(v, <span class="num">4</span>)
+            <span class="kw">else</span>:
+                props[k] = v
+
+        <span class="cm"># Round coords → 5 decimals</span>
+        geom[<span class="str">'coordinates'</span>] = <span class="fn">round_fn</span>(geom[<span class="str">'coordinates'</span>])
+        features.<span class="fn">append</span>({...})
+
+    <span class="cm"># Compact JSON output</span>
+    json.<span class="fn">dump</span>(fc, f, separators=(<span class="str">','</span>,<span class="str">':'</span>))</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 6: Backend Pipeline 2 — spatial_join -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">05 — ระบบหลังบ้าน</div>
+    <h2 class="heading">ขั้นตอนที่ 2: Spatial Join รวมข้อมูลรายอำเภอ</h2>
+    <p class="subtitle">สคริปต์ spatial_join_districts.py เฉลี่ยค่าจุดกริด 4,800 จุดลงในเขตปกครอง 11 อำเภอ ด้วยวิธี Point-in-Polygon</p>
+    <div class="split wide-right">
+      <div>
+        <ul class="feature-list">
+          <li>โหลดขอบเขตอำเภอ 11 แห่งจาก OpenStreetMap</li>
+          <li>ตัดพื้นที่ผืนน้ำทะเล (Sea Clipping) — เก็บเฉพาะแผ่นดินใหญ่</li>
+          <li>ทำ Spatial Join: วิเคราะห์ว่าจุดใดอยู่ในเขตอำเภอใด</li>
+          <li>คำนวณค่าเฉลี่ย (Mean Aggregation) ต่อตัวแปรต่อปี</li>
+          <li>ฝังค่าสถิติลงใน Properties ของโพลีกอนอำเภอ</li>
+        </ul>
+        <div class="flow" style="margin-top:16px">
+          <div class="flow-box">4,800 จุด<br><small>Grid Points</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">Point-in-Polygon<br><small>gpd.sjoin()</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">groupby.mean()<br><small>รายอำเภอ</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box" style="border-color:rgba(52,199,89,0.3)">11 อำเภอ<br><small>GeoJSON</small></div>
+        </div>
+      </div>
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#3572A5"></span> spatial_join_districts.py</div>
+        <div class="code-block"><span class="kw">import</span> geopandas <span class="kw">as</span> gpd
+
+<span class="cm"># 1. Load grid points & district polygons</span>
+grid = gpd.<span class="fn">read_file</span>(<span class="str">'chonburi_gas_lst.geojson'</span>)
+districts = gpd.<span class="fn">read_file</span>(<span class="str">'chonburi_districts.geojson'</span>)
+
+<span class="cm"># 2. Clip sea areas (keep largest polygon)</span>
+<span class="kw">def</span> <span class="fn">keep_largest_polygon</span>(geom):
+    <span class="kw">if</span> geom.geom_type == <span class="str">'MultiPolygon'</span>:
+        <span class="kw">return</span> <span class="fn">max</span>(geom.geoms, key=<span class="kw">lambda</span> p: p.area)
+    <span class="kw">return</span> geom
+
+<span class="cm"># 3. Point-in-Polygon Spatial Join</span>
+joined = gpd.<span class="fn">sjoin</span>(grid, districts,
+    how=<span class="str">'left'</span>, predicate=<span class="str">'within'</span>)
+
+<span class="cm"># 4. Aggregate Mean per District</span>
+district_agg = joined.<span class="fn">groupby</span>(<span class="str">'name'</span>)[data_cols].<span class="fn">mean</span>()
+
+<span class="cm"># 5. Merge back into polygons</span>
+result = districts.<span class="fn">merge</span>(district_agg, on=<span class="str">'name'</span>)
+
+<span class="cm"># 6. Export final GeoJSON</span>
+<span class="cm"># → chonburi_districts_with_data.geojson</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 7: Data Storage Format -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">06 — การจัดเก็บข้อมูล</div>
+    <h2 class="heading">รูปแบบการจัดเก็บข้อมูล</h2>
+    <p class="subtitle">ข้อมูลถูกจัดเก็บ 2 รูปแบบ แยกตามลักษณะการใช้งานบนหน้าเว็บ</p>
+    <div class="cards cols-2">
+      <div class="card" style="border-color:rgba(52,199,89,0.2)">
+        <div class="card-icon">🗺️</div>
+        <h3>GeoJSON (Static File)</h3>
+        <p>ข้อมูลแผนที่และค่าสถิติรายอำเภอ สำหรับวาดแผนที่ Choropleth</p>
+        <div class="code-block" style="margin-top:12px;font-size:11px;max-height:200px">{
+  <span class="str">"type"</span>: <span class="str">"FeatureCollection"</span>,
+  <span class="str">"features"</span>: [{
+    <span class="str">"properties"</span>: {
+      <span class="str">"name_th"</span>: <span class="str">"ศรีราชา"</span>,
+      <span class="str">"LST_2026"</span>: <span class="num">33.890</span>,
+      <span class="str">"CH4_2026"</span>: <span class="num">1941.2</span>,
+      <span class="str">"LST_pred_2027"</span>: <span class="num">33.540</span>
+    },
+    <span class="str">"geometry"</span>: { <span class="str">"type"</span>: <span class="str">"Polygon"</span>, ... }
+  }]
+}</div>
+        <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
+          <span class="pill green">public/ folder</span>
+          <span class="pill blue">fetch() API</span>
+        </div>
+      </div>
+      <div class="card" style="border-color:rgba(245,158,11,0.2)">
+        <div class="card-icon">📊</div>
+        <h3>JavaScript Module (Static Arrays)</h3>
+        <p>ข้อมูลค่าเฉลี่ยรวมทั้งจังหวัดเพื่อวาดกราฟสถิติหลัก</p>
+        <div class="code-block" style="margin-top:12px;font-size:11px;max-height:200px"><span class="kw">export const</span> timeSeriesData = {
+  lst: [<span class="num">32.298</span>, <span class="num">34.447</span>, <span class="num">34.122</span>,
+        <span class="num">33.298</span>, <span class="num">32.813</span>, <span class="num">34.472</span>,
+        <span class="num">34.089</span>, <span class="num">32.129</span>, <span class="num">33.599</span>,
+        <span class="num">33.355</span>], <span class="cm">// 2018–2027</span>
+  ch4: [<span class="num">1851.91</span>, ... <span class="num">1942.74</span>],
+  co:  [<span class="num">0.03546</span>, ... <span class="num">0.04003</span>]
+};</div>
+        <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
+          <span class="pill yellow">app/data/</span>
+          <span class="pill purple">import {} from</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 8: Frontend Overview -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">07 — ระบบหน้าบ้าน</div>
+    <h2 class="heading">Frontend Web Application</h2>
+    <p class="subtitle">พัฒนาด้วย Next.js 16 (React) ร่วมกับ Leaflet สำหรับ GIS Map และ Chart.js สำหรับกราฟสถิติ</p>
+    <div class="cards cols-4">
+      <div class="card">
+        <div class="card-icon">⚛️</div>
+        <h3>Next.js 16</h3>
+        <p>React Framework รุ่นล่าสุด พร้อม Turbopack ทำให้ Hot Reload ภายใน 0.6 วินาที</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗺️</div>
+        <h3>Leaflet</h3>
+        <p>ไลบรารีแผนที่ GIS แบบโอเพ่นซอร์ส รองรับ GeoJSON Layer และ Interaction Events</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Chart.js</h3>
+        <p>ไลบรารีวาดกราฟที่สวยงาม รองรับ Line, Bar, Scatter, Doughnut พร้อม Tooltip</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>Lucide Icons</h3>
+        <p>ชุดไอคอนสวยงาม ขนาดเล็กกว่า 4KB ใช้ประดับ UI ทุกส่วน</p>
+      </div>
+    </div>
+    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+      <div class="card" style="text-align:center;padding:16px">
+        <div style="font-size:24px;font-weight:800;color:#f46d43">4</div>
+        <div style="font-size:11px;color:#64748b">Core Components</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px">
+        <div style="font-size:24px;font-weight:800;color:#a855f7">7</div>
+        <div style="font-size:11px;color:#64748b">Map Layers</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px">
+        <div style="font-size:24px;font-weight:800;color:#34c759">3</div>
+        <div style="font-size:11px;color:#64748b">Basemap Styles</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px">
+        <div style="font-size:24px;font-weight:800;color:#0ea5e9">5+</div>
+        <div style="font-size:11px;color:#64748b">Chart Types</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 9: MapView Component -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">08 — คอมโพเนนต์</div>
+    <h2 class="heading">MapView.js — แผนที่เชิงโต้ตอบ</h2>
+    <p class="subtitle">วาดแผนที่ Choropleth แบ่งเฉดสีตามระดับอุณหภูมิ/ก๊าซของแต่ละอำเภอ พร้อม Layer Controls</p>
+    <div class="split wide-right">
+      <div>
+        <ul class="feature-list">
+          <li>โหลดไฟล์ GeoJSON ด้วย fetch() เมื่อเปิดหน้าเว็บ</li>
+          <li>วาดโพลีกอนอำเภอ 11 เขตด้วย L.geoJSON()</li>
+          <li>ระบายสี Choropleth ตามระดับค่าตัวแปร</li>
+          <li>Tooltip แสดงค่าสถิติเมื่อชี้เมาส์ (Hover)</li>
+          <li>คลิกอำเภอ → แสดงรายละเอียดกราฟเฉพาะเขต</li>
+          <li>สลับเลเยอร์: LST, CH₄, CO, NO₂, O₃, ทำนาย 2027</li>
+          <li>โหมดแสดง: ซ้อนทับ / แสดงเดี่ยว</li>
+          <li>สลับ Basemap: Dark / ดาวเทียม / เมือง</li>
+        </ul>
+      </div>
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#f7df1e"></span> MapView.js</div>
+        <div class="code-block"><span class="cm">// โหลดข้อมูลจาก GeoJSON</span>
+<span class="fn">fetch</span>(<span class="str">'/chonburi_districts_with_data.geojson'</span>)
+  .<span class="fn">then</span>(r => r.<span class="fn">json</span>())
+  .<span class="fn">then</span>(data => {
+    <span class="cm">// วาดเลเยอร์ Choropleth</span>
+    L.<span class="fn">geoJSON</span>(data, {
+      <span class="fn">style</span>: f => ({
+        fillColor: <span class="fn">getLstColor</span>(
+          f.properties[<span class="str">`LST_${year}`</span>]
+        ),
+        fillOpacity: <span class="num">0.72</span>,
+        weight: <span class="num">2</span>,
+        color: <span class="str">'rgba(255,255,255,0.35)'</span>
+      }),
+      <span class="fn">onEachFeature</span>: (f, layer) => {
+        layer.<span class="fn">bindTooltip</span>(<span class="fn">buildPopup</span>(f.properties));
+        layer.<span class="fn">on</span>(<span class="str">'click'</span>, () =>
+          <span class="fn">onZoneSelect</span>(f.properties));
+      }
+    }).<span class="fn">addTo</span>(map);
+  });</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 10: Dashboard & Simulation -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">09 — คอมโพเนนต์</div>
+    <h2 class="heading">Dashboard.js — ศูนย์ควบคุมและ Simulation</h2>
+    <p class="subtitle">จัดการ State ทั้งระบบ: เลือกปี, สลับเลเยอร์, เลือกอำเภอ, จำลองลดก๊าซ/เพิ่มป่าสีเขียว</p>
+    <div class="split">
+      <div>
+        <h4 style="font-size:14px;font-weight:700;color:#f59e0b;margin-bottom:12px">🎛️ ระบบจำลอง (Simulation)</h4>
+        <p style="font-size:13px;color:#94a3b8;line-height:1.7;margin-bottom:16px">
+          ผู้ใช้สามารถเลื่อน Slider เพื่อจำลองผลกระทบจาก:<br>
+          • <strong style="color:#e2e8f0">ลดก๊าซ CO</strong> (0–50%)<br>
+          • <strong style="color:#e2e8f0">เพิ่มพื้นที่สีเขียว</strong> (0–50%)<br><br>
+          ระบบจะคำนวณอุณหภูมิที่ลดลงแบบ Real-time ทั้งบนกราฟและสีบนแผนที่
+        </p>
+        <div class="highlight-box">
+          <h4>📐 สมการจำลอง</h4>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#fee08b">
+            ΔTemp = CO_reduction × 0.03 + Green_area × 0.05
+          </p>
+          <p style="margin-top:8px">ทุกการลด CO 1% → LST ลด 0.03°C<br>ทุกพื้นที่สีเขียวเพิ่ม 1% → LST ลด 0.05°C</p>
+        </div>
+      </div>
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#f7df1e"></span> Dashboard.js</div>
+        <div class="code-block"><span class="kw">const</span> [simCo, setSimCo] = <span class="fn">useState</span>(<span class="num">0</span>);
+<span class="kw">const</span> [simGreen, setSimGreen] = <span class="fn">useState</span>(<span class="num">0</span>);
+
+<span class="cm">// คำนวณอุณหภูมิที่ลดลง (Real-time)</span>
+<span class="kw">const</span> tempDrop = <span class="fn">useMemo</span>(() =>
+  (simCo * <span class="num">0.03</span> + simGreen * <span class="num">0.05</span>)
+    .<span class="fn">toFixed</span>(<span class="num">1</span>),
+  [simCo, simGreen]
+);
+
+<span class="cm">// ส่ง tempDrop ไปให้ MapView</span>
+<span class="cm">// → สีบนแผนที่เปลี่ยนทันที</span>
+&lt;<span class="fn">MapView</span>
+  yearIndex={yearIndex}
+  tempDrop={<span class="fn">parseFloat</span>(tempDrop)}
+/&gt;
+
+<span class="cm">// แสดงผลลัพธ์ Simulation</span>
+&lt;div className=<span class="str">"sim-result"</span>&gt;
+  อุณหภูมิลดลง: {tempDrop} °C
+&lt;/div&gt;</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 11: Charts Component -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">10 — คอมโพเนนต์</div>
+    <h2 class="heading">Charts.js — กราฟวิเคราะห์สถิติ</h2>
+    <p class="subtitle">วาดกราฟแนวโน้มข้อมูลจริง 2018–2026 พร้อมจุดทำนายปี 2027 จาก Random Forest Regression</p>
+    <div class="cards cols-3">
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>LST Time Series</h3>
+        <p>กราฟเส้นแสดงแนวโน้มอุณหภูมิผิวพื้นเฉลี่ยจังหวัด 9 ปี + เส้นประทำนาย 2027</p>
+        <span class="tag" style="background:rgba(244,109,67,0.12);color:#f46d43">Line + Dash</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>LST Histogram</h3>
+        <p>แสดงการกระจายของอุณหภูมิจากจุดกริด 4,800 จุดในปีที่เลือก แบ่งเป็น Bucket ช่วง °C</p>
+        <span class="tag" style="background:rgba(245,158,11,0.12);color:#f59e0b">Bar Chart</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>Gas Trends</h3>
+        <p>กราฟเส้นแยกก๊าซ 4 ชนิด: CH₄, CO, NO₂, O₃ แสดงแนวโน้มการเพิ่มขึ้นของมลพิษ</p>
+        <span class="tag" style="background:rgba(168,85,247,0.12);color:#a855f7">4 Sub-charts</span>
+      </div>
+    </div>
+    <div class="cards cols-2" style="margin-top:14px">
+      <div class="card">
+        <div class="card-icon">🔮</div>
+        <h3>Predict Compare 2027</h3>
+        <p>เปรียบเทียบ LST 2026 (จริง) vs 2027 (ทำนาย) แบบ Bar Chart แนวตั้งพร้อมค่า Δ Change</p>
+        <span class="tag" style="background:rgba(52,199,89,0.12);color:#34c759">Comparison</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📍</div>
+        <h3>District Trend</h3>
+        <p>เมื่อคลิกเลือกอำเภอ แสดงกราฟแนวโน้ม LST เฉพาะอำเภอนั้น ๆ พร้อมจุดทำนาย</p>
+        <span class="tag" style="background:rgba(14,165,233,0.12);color:#0ea5e9">Per-District</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 12: Timeline -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">11 — คอมโพเนนต์</div>
+    <h2 class="heading">Timeline.js — แถบเลือกเวลา</h2>
+    <p class="subtitle">คอมโพเนนต์สำหรับสลับเปลี่ยนปีข้อมูล 2018–2027 พร้อมระบบ Auto-Play แบบอนิเมชัน</p>
+    <div class="split">
+      <div>
+        <ul class="feature-list">
+          <li>แสดงปี 2018–2027 เป็น Label คลิกได้ทุกปี</li>
+          <li>Slider Input Range สำหรับเลื่อนเลือกปี</li>
+          <li>ปุ่ม ▶ Play/Pause สำหรับเล่นอัตโนมัติ (ทุก 1.2 วินาที)</li>
+          <li>ปี 2027 แสดง Badge "Predicted" แยกจากข้อมูลจริง</li>
+          <li>เปลี่ยนปี → แผนที่ + สถิติ + กราฟ อัปเดตทันที</li>
+        </ul>
+        <div class="highlight-box" style="margin-top:20px">
+          <h4>🎬 Auto-Play Flow</h4>
+          <p>กดปุ่ม Play → ระบบจะวนเปลี่ยนปีอัตโนมัติจาก 2018 → 2019 → ... → 2027 → กลับไป 2018 ทำให้เห็นแนวโน้มการเปลี่ยนแปลงของอุณหภูมิบนแผนที่แบบต่อเนื่อง</p>
+        </div>
+      </div>
+      <div>
+        <div class="code-label"><span class="dot-lang" style="background:#f7df1e"></span> Timeline.js</div>
+        <div class="code-block"><span class="kw">const</span> [playing, setPlaying] = <span class="fn">useState</span>(<span class="kw">false</span>);
+
+<span class="cm">// Auto-play: เปลี่ยนปีทุก 1.2 วินาที</span>
+<span class="fn">useEffect</span>(() => {
+  <span class="kw">if</span> (!playing) <span class="kw">return</span>;
+
+  <span class="kw">const</span> timer = <span class="fn">setInterval</span>(() => {
+    <span class="fn">onYearChange</span>(prev =>
+      (prev + <span class="num">1</span>) % (maxIndex + <span class="num">1</span>)
+    );
+  }, <span class="num">1200</span>);
+
+  <span class="kw">return</span> () => <span class="fn">clearInterval</span>(timer);
+}, [playing]);
+
+<span class="cm">// ปี 2027 = index 9 (Predicted)</span>
+<span class="kw">const</span> isPredicted = yearIndex === <span class="num">9</span>;
+
+<span class="cm">// Slider UI</span>
+&lt;input type=<span class="str">"range"</span>
+  min=<span class="str">"0"</span> max={maxIndex}
+  value={yearIndex}
+  onChange={e =>
+    <span class="fn">onYearChange</span>(<span class="fn">parseInt</span>(e.target.value))}
+/&gt;</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 13: Results -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">12 — ผลลัพธ์</div>
+    <h2 class="heading">ผลลัพธ์และการวิเคราะห์</h2>
+    <p class="subtitle">สรุปค่าเฉลี่ยสถิติจังหวัดชลบุรี 2018–2027 จากข้อมูลดาวเทียมจริงและโมเดลพยากรณ์</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ปี ค.ศ.</th>
+          <th>🌡 LST (°C)</th>
+          <th>☁ CH₄ (ppb)</th>
+          <th>💨 CO (×10⁻³)</th>
+          <th>🌫 NO₂ (µmol)</th>
+          <th>แหล่งข้อมูล</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2018</td><td>32.30</td><td>1851.91</td><td>35.46</td><td>1.80</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2019</td><td>34.45</td><td>1867.34</td><td>38.57</td><td>1.49</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2020</td><td>34.12</td><td>1892.90</td><td>40.76</td><td>1.14</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2021</td><td>33.30</td><td>1913.77</td><td>38.21</td><td>1.67</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2022</td><td>32.81</td><td>1920.62</td><td>35.83</td><td>1.63</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2023</td><td style="color:#f46d43;font-weight:700">34.47</td><td>1928.54</td><td>39.18</td><td>2.34</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2024</td><td>34.09</td><td>1936.71</td><td>38.93</td><td>2.27</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2025</td><td>32.13</td><td>1942.31</td><td>36.95</td><td>3.01</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr><td>2026</td><td style="font-weight:700">33.60</td><td style="font-weight:700">1942.74</td><td style="font-weight:700">40.03</td><td style="font-weight:700;color:#e11d48">3.14</td><td><span class="pill green">MODIS / Sentinel-5P</span></td></tr>
+        <tr class="highlight-row"><td>2027</td><td>33.36</td><td>—</td><td>—</td><td>—</td><td><span class="pill yellow">Random Forest Regression</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 14: Key Insights -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-num">13 — การวิเคราะห์</div>
+    <h2 class="heading">Key Insights</h2>
+    <p class="subtitle">ข้อค้นพบสำคัญจากการวิเคราะห์ข้อมูลเชิงพื้นที่ 9 ปีของจังหวัดชลบุรี</p>
+    <div class="cards cols-2">
+      <div class="card" style="border-left:3px solid #a855f7">
+        <h3>☁ ก๊าซ CH₄ เพิ่มขึ้นต่อเนื่อง</h3>
+        <p>เพิ่มจาก 1,851 ppb (2018) → 1,942 ppb (2026)<br><strong style="color:#a855f7">เพิ่มขึ้น +90.83 ppb (+4.9%)</strong></p>
+      </div>
+      <div class="card" style="border-left:3px solid #e11d48">
+        <h3>🌫 ก๊าซ NO₂ พุ่งสูงอย่างมาก</h3>
+        <p>เพิ่มจาก 1.80 µmol (2018) → 3.14 µmol (2026)<br><strong style="color:#e11d48">เพิ่มขึ้น +74% ชี้กิจกรรมอุตสาหกรรมหนาแน่น</strong></p>
+      </div>
+      <div class="card" style="border-left:3px solid #f46d43">
+        <h3>🌡 Hotspot อำเภอที่ร้อนที่สุด</h3>
+        <p>อำเภอเมืองชลบุรี, ศรีราชา, บางละมุง (พัทยา) มี LST สูงต่อเนื่อง<br><strong style="color:#f46d43">เนื่องจากพื้นผิวคอนกรีตและตึกสูงหนาแน่น</strong></p>
+      </div>
+      <div class="card" style="border-left:3px solid #34c759">
+        <h3>🤖 โมเดล Predict 2027</h3>
+        <p>Random Forest ทำนาย LST 2027 = 33.36°C<br><strong style="color:#34c759">ลดลง –0.24°C จากปี 2026 (ผันผวนฤดูกาล)</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SLIDE 15: Conclusion -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content slide-title">
+    <div class="badge">✨ สรุปโครงการ</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem)">สรุปผลและข้อเสนอแนะ</h1>
+    <h2 style="font-size:clamp(0.9rem,1.5vw,1.15rem)">ระบบ CitySweat แสดงให้เห็นการผสานรวม GIS Web Application เข้ากับ Machine Learning<br>เพื่อวิเคราะห์เกาะความร้อนเมืองอย่างเป็นรูปธรรม</h2>
+    <div class="cards cols-3" style="margin-top:24px;text-align:left">
+      <div class="card">
+        <h3>🐍 Backend Pipeline</h3>
+        <p>ประมวลผล Spatial Aggregation บีบอัดจุดกริด 4,800 จุดลงใน 11 อำเภอ ด้วย GeoJSON</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Frontend GIS</h3>
+        <p>แผนที่ Choropleth โต้ตอบ + กราฟสถิติ + Simulation ลดก๊าซแบบ Real-time</p>
+      </div>
+      <div class="card">
+        <h3>🤖 ML Prediction</h3>
+        <p>Random Forest Regression ทำนายอุณหภูมิ 2027 ได้แม่นยำ ช่วยวางแผนนโยบาย</p>
+      </div>
+    </div>
+    <div style="margin-top:36px">
+      <div class="meta">
+        <span><span class="dot" style="background:#f46d43"></span> Mini Project Y4/T2 — 2026</span>
+        <span><span class="dot" style="background:#34c759"></span> CitySweat GHG & LST Analysis</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end slides-wrapper -->
+
+<script>
+  // ── Slide Engine ──────────────────────────
+  const wrapper = document.getElementById('slidesWrapper');
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  document.getElementById('totalSlides').textContent = total;
+
+  // Build dot nav
+  const dotNav = document.getElementById('dotNav');
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.addEventListener('click', () => goTo(i));
+    dotNav.appendChild(btn);
+  });
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+    slides[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    wrapper.style.transform = `translateX(-${current * 100}vw)`;
+    document.getElementById('progress').style.width = `${((current + 1) / total) * 100}%`;
+    document.getElementById('curSlide').textContent = current + 1;
+    
+    // Update dots
+    dotNav.querySelectorAll('button').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  document.getElementById('btnPrev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('btnNext').addEventListener('click', () => goTo(current + 1));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 60) {
+      diff > 0 ? goTo(current + 1) : goTo(current - 1);
+    }
+  });
+
+  // Initialize
+  goTo(0);
+</script>
+</body>
+</html>
