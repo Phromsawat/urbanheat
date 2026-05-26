@@ -205,6 +205,28 @@ export default function Dashboard() {
           </div>
         </div>
 
+        <div className="sidebar-section" style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '10px' }}>
+          <div className="section-label"><Info size={14} /><span>เอกสารโครงการ &amp; โค้ดวิจัย</span></div>
+          <a href="/slides.html" target="_blank" rel="noopener noreferrer" style={{
+            display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px',
+            background: 'rgba(90, 86, 214, 0.08)', border: '1px solid rgba(90, 86, 214, 0.2)',
+            borderRadius: '12px', color: '#5856d6', textDecoration: 'none',
+            fontSize: '12.5px', fontWeight: '700', transition: 'all 0.2s',
+          }} onMouseOver={e => e.currentTarget.style.background = 'rgba(90, 86, 214, 0.15)'}
+             onMouseOut={e => e.currentTarget.style.background = 'rgba(90, 86, 214, 0.08)'}>
+            🖥️ <span>สไลด์นำเสนอระบบ (Slides)</span>
+          </a>
+          <a href="/notebook.html" target="_blank" rel="noopener noreferrer" style={{
+            display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px',
+            background: 'rgba(52, 199, 89, 0.08)', border: '1px solid rgba(52, 199, 89, 0.2)',
+            borderRadius: '12px', color: '#34c759', textDecoration: 'none',
+            fontSize: '12.5px', fontWeight: '700', transition: 'all 0.2s',
+          }} onMouseOver={e => e.currentTarget.style.background = 'rgba(52, 199, 89, 0.15)'}
+             onMouseOut={e => e.currentTarget.style.background = 'rgba(52, 199, 89, 0.08)'}>
+            📓 <span>ดูสมุดบันทึก Jupyter (Python)</span>
+          </a>
+        </div>
+
         <div className="sidebar-footer"><span>Mini Project Y4/T2 — 2026</span></div>
       </aside>
 
